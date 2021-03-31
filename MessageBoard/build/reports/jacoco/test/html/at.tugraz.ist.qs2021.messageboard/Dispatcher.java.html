@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Dispatcher.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MessageBoard</a> &gt; <a href="index.source.html" class="el_package">at.tugraz.ist.qs2021.messageboard</a> &gt; <span class="el_source">Dispatcher.java</span></div><h1>Dispatcher.java</h1><pre class="source lang-java linenums">package at.tugraz.ist.qs2021.messageboard;
+
+import at.tugraz.ist.qs2021.actorsystem.Message;
+import at.tugraz.ist.qs2021.actorsystem.SimulatedActor;
+import at.tugraz.ist.qs2021.actorsystem.SimulatedActorSystem;
+import at.tugraz.ist.qs2021.messageboard.clientmessages.InitCommunication;
+import at.tugraz.ist.qs2021.messageboard.clientmessages.OperationFailed;
+import at.tugraz.ist.qs2021.messageboard.dispatchermessages.Stop;
+import at.tugraz.ist.qs2021.messageboard.dispatchermessages.StopAck;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+/**
+ * Dispatcher mode which can either be normal or stopping,
+ * which means that new communication requests are ignored.
+ */
+<span class="fc" id="L19">enum Mode {NORMAL, STOPPING}</span>
+
+/**
+ * Dispatcher class, which acts as an interface to new clients.
+ * Upon communication initialization it selects a worker and forwards
+ * the communication request to it. It is also responsible for stopping
+ * the system.
+ */
+public class Dispatcher extends SimulatedActor {
+
+    /**
+     * mode property defining the mode currently active
+     */
+    private Mode mode;
+
+    /**
+     * Worker actors, which are managed by this actor
+     */
+    private List&lt;Worker&gt; workers;
+
+    /**
+     * number of workers
+     */
+    private int numberOfWorkers;
+
+    /**
+     * The system, which is used to spawn actors.
+     */
+    private SimulatedActorSystem system;
+
+    /**
+     * List of acknowledgement messages to collect, which is only non-empty
+     * in stopping mode- The list elements correspond to the actor-IDs of workers,
+     * which have not yet acknowledged the stop messages sent to them.
+     */
+    private List&lt;Long&gt; acksToCollect;
+
+    /**
+     * message store, which is used by workers to persist application data.
+     */
+    protected MessageStore messageStore;
+
+<span class="fc" id="L61">    public Dispatcher(SimulatedActorSystem system, int numberOfWorkers) {</span>
+<span class="fc" id="L62">        this.system = system;</span>
+<span class="fc" id="L63">        this.workers = new ArrayList&lt;&gt;(numberOfWorkers);</span>
+<span class="fc" id="L64">        this.numberOfWorkers = numberOfWorkers;</span>
+<span class="fc" id="L65">        this.mode = Mode.NORMAL;</span>
+<span class="fc" id="L66">        this.acksToCollect = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L67">    }</span>
+
+    /**
+     * Depending on messages sent and the mode, different actions are performed.
+     *
+     * @param message Non-null message received
+     */
+    @Override
+    public void receive(Message message) {
+<span class="pc bpc" id="L76" title="1 of 2 branches missed.">        if (mode == Mode.NORMAL) {</span>
+<span class="fc" id="L77">            normalOperation(message);</span>
+        }
+<span class="pc bpc" id="L79" title="1 of 2 branches missed.">        if (mode == Mode.STOPPING) {</span>
+<span class="nc" id="L80">            stopping(message);</span>
+        }
+<span class="fc" id="L82">    }</span>
+
+    /**
+     * Creates all Workers and the message store
+     */
+    @Override
+    public void atStartUp() {
+<span class="fc" id="L89">        messageStore = new MessageStore();</span>
+<span class="fc bfc" id="L90" title="All 2 branches covered.">        for (int i = 0; i &lt; numberOfWorkers; i++) {</span>
+<span class="fc" id="L91">            Worker w = new Worker(this, messageStore, system);</span>
+<span class="fc" id="L92">            system.spawn(w);</span>
+<span class="fc" id="L93">            workers.add(w);</span>
+        }
+<span class="fc" id="L95">        system.spawn(messageStore);</span>
+<span class="fc" id="L96">    }</span>
+
+    /**
+     * In stopping mode, InitCommunication always fail, which is signal
+     * using an OperationFailed message sent to the client.
+     * In this mode, only StopAck-messages are expected and if all stop acknowledgements
+     * have been collected, the Dispatcher stop itself.
+     *
+     * @param message received message
+     */
+    private void stopping(Message message) {
+<span class="nc bnc" id="L107" title="All 2 branches missed.">        if (message instanceof InitCommunication) {</span>
+<span class="nc" id="L108">            InitCommunication initM = ((InitCommunication) message);</span>
+<span class="nc" id="L109">            initM.client.tell(new OperationFailed(initM.communicationId));</span>
+<span class="nc bnc" id="L110" title="All 2 branches missed.">        } else if (message instanceof StopAck) {</span>
+<span class="nc" id="L111">            SimulatedActor actor = ((StopAck) message).sender;</span>
+<span class="nc" id="L112">            acksToCollect.remove(actor.getId());</span>
+<span class="nc" id="L113">            system.stop(actor);</span>
+<span class="nc bnc" id="L114" title="All 2 branches missed.">            if (acksToCollect.size() == 0) {</span>
+<span class="nc" id="L115">                system.stop(messageStore);</span>
+<span class="nc" id="L116">                system.stop(this);</span>
+            }
+        }
+<span class="nc" id="L119">    }</span>
+
+    /**
+     * In normal operation messages are forwarded to workers.
+     * A InitCommunication-message is forwarded to one worker
+     * which is selected based on the communication id set in the message.
+     * The selection scheme is (if workers are numbered from 0 to n - 1)
+     * selected_worker_number = communication % n, where a % b is the non-negative
+     * remainder of the integer division a/b.
+     * If a Stop message is sent, it is broadcast to all workers and the mode
+     * is switched to STOPPING.
+     *
+     * @param message message received
+     */
+    private void normalOperation(Message message) {
+<span class="pc bpc" id="L134" title="1 of 2 branches missed.">        if (message instanceof Stop) {</span>
+<span class="nc bnc" id="L135" title="All 2 branches missed.">            for (Worker w : workers) {</span>
+<span class="nc" id="L136">                acksToCollect.add(w.getId());</span>
+<span class="nc" id="L137">                w.tell(new Stop());</span>
+<span class="nc" id="L138">            }</span>
+<span class="nc" id="L139">            mode = Mode.STOPPING;</span>
+<span class="pc bpc" id="L140" title="1 of 2 branches missed.">        } else if (message instanceof InitCommunication) {</span>
+            // decide upon id for now, maybe switch to login credentials TODO
+<span class="fc" id="L142">            InitCommunication initC = ((InitCommunication) message);</span>
+<span class="fc" id="L143">            Random random = new Random(initC.communicationId);</span>
+<span class="fc" id="L144">            int rnd = random.nextInt();</span>
+<span class="fc" id="L145">            int index = (((rnd % workers.size()) + workers.size()) % workers.size());</span>
+<span class="fc" id="L146">            Worker w = workers.get(index);</span>
+<span class="fc" id="L147">            w.tell(message);</span>
+        }
+<span class="fc" id="L149">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

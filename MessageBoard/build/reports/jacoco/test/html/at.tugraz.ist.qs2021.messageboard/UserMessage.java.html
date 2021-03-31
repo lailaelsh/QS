@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserMessage.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MessageBoard</a> &gt; <a href="index.source.html" class="el_package">at.tugraz.ist.qs2021.messageboard</a> &gt; <span class="el_source">UserMessage.java</span></div><h1>UserMessage.java</h1><pre class="source lang-java linenums">package at.tugraz.ist.qs2021.messageboard;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * This class represents actual messages posted by users (do not confuse
+ * with message passed between actors).
+ */
+public class UserMessage {
+
+    /**
+     * ID for new messages
+     */
+    public final static long NEW_ID = -1;
+
+    /**
+     * the author of the message
+     */
+    private String author;
+
+    /**
+     * the message posted by the author
+     */
+    private String message;
+
+    /**
+     * likes for the message (initially empty)
+     * The strings in the list are names of people who like the message.
+     */
+    private List&lt;String&gt; likes;
+
+    /**
+     * dislikes for the message (initially empty)
+     * The strings in the list are names of people who dislike the message.
+     */
+    private List&lt;String&gt; dislikes;
+
+    /**
+     * invariant, only NEW and positive IDs are used.
+     * ID of the message to be able to refer to it.
+     * Only positive numbers and &lt;c&gt;UserMessage.NEW&lt;/c&gt;
+     * are allowed as IDs.
+     */
+    private long messageId;
+
+    /**
+     * Constructs the new UserMessage object
+     *
+     * @param author  author of the message
+     * @param message posted message string
+     */
+<span class="nc" id="L53">    public UserMessage(String author, String message) {</span>
+<span class="nc" id="L54">        this.author = author;</span>
+<span class="nc" id="L55">        this.message = message;</span>
+<span class="nc" id="L56">        this.likes = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L57">        this.dislikes = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L58">        this.messageId = NEW_ID;</span>
+<span class="nc" id="L59">    }</span>
+
+    /**
+     * Newly added toString()-method, which returns a string representation
+     * of user messages.
+     *
+     * @return string-representation of User Message
+     */
+    @Override
+    public String toString() {
+<span class="nc" id="L69">        return author + &quot;:&quot; + message + &quot; liked by :&quot; + String.join(&quot;,&quot;, likes) + &quot; disliked by :&quot; + String.join(&quot;,&quot;, dislikes);</span>
+    }
+
+    public String getAuthor() {
+<span class="nc" id="L73">        return author;</span>
+    }
+
+    public String getMessage() {
+<span class="nc" id="L77">        return message;</span>
+    }
+
+    public List&lt;String&gt; getLikes() {
+<span class="nc" id="L81">        return likes;</span>
+    }
+
+    public List&lt;String&gt; getDislikes() {
+<span class="nc" id="L85">        return dislikes;</span>
+    }
+
+    public long getMessageId() {
+<span class="nc" id="L89">        return messageId;</span>
+    }
+
+    public void setMessageId(long messageId) {
+<span class="nc" id="L93">        this.messageId = messageId;</span>
+<span class="nc" id="L94">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

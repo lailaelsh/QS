@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MessageInDelivery.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MessageBoard</a> &gt; <a href="index.source.html" class="el_package">at.tugraz.ist.qs2021.actorsystem</a> &gt; <span class="el_source">MessageInDelivery.java</span></div><h1>MessageInDelivery.java</h1><pre class="source lang-java linenums">package at.tugraz.ist.qs2021.actorsystem;
+
+public class MessageInDelivery {
+    private int remainingTicks;
+    private Message message;
+
+    /**
+     * Constructs a MessageInDelivery object.
+     *
+     * @param duration The total number of ticks the message needs to be delivered.
+     * @param message  The message.
+     */
+<span class="fc" id="L13">    public MessageInDelivery(int duration, Message message) {</span>
+<span class="fc" id="L14">        this.remainingTicks = duration;</span>
+<span class="fc" id="L15">        this.message = message;</span>
+<span class="fc" id="L16">    }</span>
+
+    public Message getMessage() {
+<span class="fc" id="L19">        return message;</span>
+    }
+
+    /**
+     * Check if message already arrived at its destination.
+     * If not, reduce number of remaining ticks.
+     *
+     * @return True if message arrived at its destination, false if not.
+     */
+    boolean tick() {
+<span class="fc bfc" id="L29" title="All 2 branches covered.">        if (this.remainingTicks == 0) {</span>
+<span class="fc" id="L30">            return true;</span>
+        } else {
+<span class="fc" id="L32">            this.remainingTicks--;</span>
+<span class="fc" id="L33">            return false;</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

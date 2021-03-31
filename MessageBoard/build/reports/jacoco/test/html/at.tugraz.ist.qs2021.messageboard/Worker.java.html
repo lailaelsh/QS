@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Worker.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MessageBoard</a> &gt; <a href="index.source.html" class="el_package">at.tugraz.ist.qs2021.messageboard</a> &gt; <span class="el_source">Worker.java</span></div><h1>Worker.java</h1><pre class="source lang-java linenums">package at.tugraz.ist.qs2021.messageboard;
+
+import at.tugraz.ist.qs2021.actorsystem.Message;
+import at.tugraz.ist.qs2021.actorsystem.SimulatedActor;
+import at.tugraz.ist.qs2021.actorsystem.SimulatedActorSystem;
+import at.tugraz.ist.qs2021.messageboard.clientmessages.*;
+import at.tugraz.ist.qs2021.messageboard.dispatchermessages.Stop;
+import at.tugraz.ist.qs2021.messageboard.dispatchermessages.StopAck;
+import at.tugraz.ist.qs2021.messageboard.messagestoremessages.*;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Worker extends SimulatedActor {
+    /**
+     * actor responsible for persistence-related tasks
+     */
+    private SimulatedActor messageStore;
+
+    /**
+     * dispatcher actor, which manages all workers
+     */
+    private SimulatedActor dispatcher;
+
+    /**
+     * currently active communications with clients, the key of
+     * the dictionary is a communication ID and the value a reference to the client
+     */
+    private Map&lt;Long, SimulatedActor&gt; ongoingCommunications;
+
+    /**
+     * system used to spawn actors
+     */
+    private SimulatedActorSystem system;
+
+    /**
+     * flag which is set if the worker is about to be stopped
+     */
+    private boolean stopping;
+
+    /**
+     * Constructs a new Worker object
+     *
+     * @param dispatcher   the dispatcher
+     * @param messageStore the message store responsible for persistence
+     * @param system       the actor system simulation
+     */
+<span class="fc" id="L48">    public Worker(SimulatedActor dispatcher, SimulatedActor messageStore, SimulatedActorSystem system) {</span>
+<span class="fc" id="L49">        this.dispatcher = dispatcher;</span>
+<span class="fc" id="L50">        this.messageStore = messageStore;</span>
+<span class="fc" id="L51">        this.ongoingCommunications = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L52">        this.system = system;</span>
+<span class="fc" id="L53">        this.stopping = false;</span>
+<span class="fc" id="L54">    }</span>
+
+    /**
+     * Receive method which chooses the actions to perform depending on the message type.
+     * Accepts the Stop message from the dispatcher and all ClientMessage messages except
+     * the reply message OperationAck, InitAck,FinishAck and OperationFailed.
+     * It does not accept any messages while stopping and responds with back
+     * OperationFailed messages during stopping.
+     * If an unknown communication ID is used for ClientMessage messages, an UnknownClientException-
+     * exception is thrown. Further documentation can be found above helper methods named processMessageType.
+     *
+     * @param message Non-null message received
+     * @throws UnknownClientException thrown if communication id of message is unknown
+     */
+    @Override
+    public void receive(Message message) throws UnknownClientException {
+<span class="pc bpc" id="L70" title="3 of 4 branches missed.">        if (stopping &amp;&amp; message instanceof ClientMessage) {</span>
+            // all operations while stopping fail
+<span class="nc" id="L72">            ClientMessage clientMessage = (ClientMessage) message;</span>
+<span class="nc bnc" id="L73" title="All 2 branches missed.">            if (!ongoingCommunications.containsKey(clientMessage.communicationId))</span>
+<span class="nc" id="L74">                throw new UnknownClientException(&quot;Unknown communication ID&quot;);</span>
+<span class="nc" id="L75">            ongoingCommunications.get(clientMessage.communicationId).tell(new OperationFailed(clientMessage.communicationId));</span>
+<span class="pc bfc" id="L76" title="All 2 branches covered.">        } else if (message instanceof InitCommunication) {</span>
+<span class="fc" id="L77">            processInitCommunication(message);</span>
+<span class="pc bpc" id="L78" title="1 of 2 branches missed.">        } else if (message instanceof FinishCommunication) {</span>
+<span class="fc" id="L79">            processFinishCommunication(message);</span>
+<span class="nc bnc" id="L80" title="All 2 branches missed.">        } else if (message instanceof Stop) {</span>
+<span class="nc" id="L81">            processStop();</span>
+<span class="nc bnc" id="L82" title="All 2 branches missed.">        } else if (message instanceof Publish)</span>
+<span class="nc" id="L83">            processPublish(message);</span>
+<span class="nc bnc" id="L84" title="All 2 branches missed.">        else if (message instanceof RetrieveMessages) {</span>
+<span class="nc" id="L85">            processRetrieveMessages(message);</span>
+<span class="nc bnc" id="L86" title="All 2 branches missed.">        } else if (message instanceof Like) {</span>
+<span class="nc" id="L87">            processLike(message);</span>
+<span class="nc bnc" id="L88" title="All 2 branches missed.">        } else if (message instanceof Dislike) {</span>
+<span class="nc" id="L89">            processDislike(message);</span>
+<span class="nc bnc" id="L90" title="All 2 branches missed.">        } else if (message instanceof Report) {</span>
+<span class="nc" id="L91">            processReport(message);</span>
+<span class="nc bnc" id="L92" title="All 2 branches missed.">        } else if (message instanceof SearchMessages) {</span>
+<span class="nc" id="L93">            processSearchMessages(message);</span>
+        }
+<span class="fc" id="L95">    }</span>
+
+    /**
+     * Initiates communication with a client and sends an InitAck message to it,
+     * which contains a reference to &lt;c&gt;this&lt;/c&gt;.
+     * After that other ClientMessage messages can be sent to this worker
+     * using the communication ID given in the received message
+     *
+     * @param message non-null message of type InitCommunication
+     */
+    private void processInitCommunication(Message message) {
+<span class="fc" id="L106">        InitCommunication initC = (InitCommunication) message;</span>
+<span class="fc" id="L107">        ongoingCommunications.put(initC.communicationId, initC.client);</span>
+<span class="fc" id="L108">        initC.client.tell(new InitAck(this, initC.communicationId));</span>
+<span class="fc" id="L109">    }</span>
+
+
+    /**
+     * Finishes communication with a client and sends a FinishAck message to it.
+     * After that other ClientMessage messages, using the communication ID given
+     * in the received message, cannot be sent to this worker anymore
+     *
+     * @param message non-null message of type FinishCommunication
+     * @throws UnknownClientException thrown if communication id of message is unknown
+     */
+    private void processFinishCommunication(Message message) throws UnknownClientException {
+<span class="fc" id="L121">        FinishCommunication finC = (FinishCommunication) message;</span>
+
+<span class="pc bpc" id="L123" title="1 of 2 branches missed.">        if (!ongoingCommunications.containsKey(finC.communicationId))</span>
+<span class="nc" id="L124">            throw new UnknownClientException(&quot;Unknown communication ID&quot;);</span>
+<span class="fc" id="L125">        SimulatedActor client = ongoingCommunications.get(finC.communicationId);</span>
+<span class="fc" id="L126">        ongoingCommunications.remove(finC.communicationId);</span>
+<span class="fc" id="L127">        client.tell(new FinishAck(finC.communicationId));</span>
+<span class="fc" id="L128">    }</span>
+
+    /**
+     * Changes into stopping mode and acknowledges stopping to the dispatcher.
+     */
+    private void processStop() {
+<span class="nc" id="L134">        dispatcher.tell(new StopAck(this));</span>
+<span class="nc" id="L135">        stopping = true;</span>
+<span class="nc" id="L136">    }</span>
+
+    /**
+     * Spawns a worker helper which communicates with the message store to retrieve
+     * messages of the author given in the message passed as parameter.
+     *
+     * @param message non-null message of type RetrieveMessages
+     * @throws UnknownClientException thrown if communication id of message is unknown
+     */
+    private void processRetrieveMessages(Message message) throws UnknownClientException {
+<span class="nc" id="L146">        RetrieveMessages retrMessages = (RetrieveMessages) message;</span>
+<span class="nc bnc" id="L147" title="All 2 branches missed.">        if (!ongoingCommunications.containsKey(retrMessages.communicationId))</span>
+<span class="nc" id="L148">            throw new UnknownClientException(&quot;Unknown communication ID&quot;);</span>
+<span class="nc" id="L149">        SimulatedActor client = ongoingCommunications.get(retrMessages.communicationId);</span>
+
+<span class="nc" id="L151">        MessageStoreMessage retrievedMessages = new RetrieveFromStore(retrMessages.author, retrMessages.communicationId);</span>
+<span class="nc" id="L152">        WorkerHelper helper = new WorkerHelper(messageStore, client, retrievedMessages, system);</span>
+<span class="nc" id="L153">        system.spawn(helper);</span>
+<span class="nc" id="L154">    }</span>
+
+    /**
+     * Spawns a worker helper which communicates with the message store to add a like
+     * to a user message given in the message passed as parameter.
+     *
+     * @param message non-null message of type Like
+     * @throws UnknownClientException thrown if communication id of message is unknown
+     */
+    private void processLike(Message message) throws UnknownClientException {
+<span class="nc" id="L164">        Like like = (Like) message;</span>
+<span class="nc bnc" id="L165" title="All 2 branches missed.">        if (!ongoingCommunications.containsKey(like.communicationId))</span>
+<span class="nc" id="L166">            throw new UnknownClientException(&quot;Unknown communication ID&quot;);</span>
+<span class="nc" id="L167">        SimulatedActor client = ongoingCommunications.get(like.communicationId);</span>
+<span class="nc" id="L168">        MessageStoreMessage retrievedMessages = new AddLike(like.clientName, like.messageId, like.communicationId);</span>
+<span class="nc" id="L169">        WorkerHelper helper = new WorkerHelper(messageStore, client, retrievedMessages, system);</span>
+<span class="nc" id="L170">        system.spawn(helper);</span>
+<span class="nc" id="L171">    }</span>
+
+    /**
+     * message non-null message of type Dislike
+     * Spawns a worker helper which communicates with the message store to add a dislike
+     * to a user message given in the message passed as parameter.
+     *
+     * @param message The dislike message
+     * @throws UnknownClientException thrown if communication id of message is unknown
+     */
+    private void processDislike(Message message) throws UnknownClientException {
+<span class="nc" id="L182">        Dislike dislike = (Dislike) message;</span>
+<span class="nc bnc" id="L183" title="All 2 branches missed.">        if (!ongoingCommunications.containsKey(dislike.communicationId))</span>
+<span class="nc" id="L184">            throw new UnknownClientException(&quot;Unknown communication ID&quot;);</span>
+<span class="nc" id="L185">        SimulatedActor client = ongoingCommunications.get(dislike.communicationId);</span>
+<span class="nc" id="L186">        MessageStoreMessage retrievedMessages =</span>
+<span class="nc" id="L187">                new AddDislike(dislike.clientName, dislike.messageId, dislike.communicationId);</span>
+<span class="nc" id="L188">        WorkerHelper helper = new WorkerHelper(messageStore, client, retrievedMessages, system);</span>
+<span class="nc" id="L189">        system.spawn(helper);</span>
+<span class="nc" id="L190">    }</span>
+
+    /**
+     * Performs checks on a user message, which should be published. If the
+     * checks are passed, a worker helper is spawned, which communicates with
+     * the message store to store the new user message.
+     * New messages must have zero likes, must not have a message ID assigned
+     * and must not be (strictly) longer than 10 characters.
+     * Only 10 characters are allowed to to alleviate exercise 4.
+     *
+     * @param message non-null message of type Publish
+     * @throws UnknownClientException thrown if communication id of message is unknown
+     */
+    private void processPublish(Message message) throws UnknownClientException {
+<span class="nc" id="L204">        Publish publish = (Publish) message;</span>
+<span class="nc bnc" id="L205" title="All 2 branches missed.">        if (!ongoingCommunications.containsKey(publish.communicationId))</span>
+<span class="nc" id="L206">            throw new UnknownClientException(&quot;Unknown communication ID&quot;);</span>
+<span class="nc" id="L207">        SimulatedActor client = ongoingCommunications.get(publish.communicationId);</span>
+<span class="nc" id="L208">        UserMessage userMessage = publish.message;</span>
+<span class="nc bnc" id="L209" title="All 4 branches missed.">        if (userMessage.getLikes().size() &gt; 0 || userMessage.getDislikes().size() &gt; 0 ||</span>
+<span class="nc bnc" id="L210" title="All 4 branches missed.">                userMessage.getMessageId() != UserMessage.NEW_ID || userMessage.getMessage().length() &gt; 10) {</span>
+<span class="nc" id="L211">            client.tell(new OperationFailed(publish.communicationId));</span>
+        } else {
+<span class="nc" id="L213">            MessageStoreMessage updatedMessages = new UpdateMessageStore(userMessage, publish.communicationId);</span>
+<span class="nc" id="L214">            WorkerHelper helper = new WorkerHelper(messageStore, client, updatedMessages, system);</span>
+<span class="nc" id="L215">            system.spawn(helper);</span>
+        }
+<span class="nc" id="L217">    }</span>
+
+    /**
+     * Spawns a worker helper which communicates with the message store to add a report
+     * to a user passed as parameter.
+     *
+     * @param message non-null message of type Report
+     * @throws UnknownClientException thrown if communication id of report is unknown
+     */
+    private void processReport(Message message) throws UnknownClientException {
+<span class="nc" id="L227">        Report report = (Report) message;</span>
+<span class="nc bnc" id="L228" title="All 2 branches missed.">        if (!ongoingCommunications.containsKey(report.communicationId))</span>
+<span class="nc" id="L229">            throw new UnknownClientException(&quot;Unknown communication ID&quot;);</span>
+<span class="nc" id="L230">        SimulatedActor client = ongoingCommunications.get(report.communicationId);</span>
+<span class="nc" id="L231">        MessageStoreMessage reportedMessage = new AddReport(report.clientName, report.communicationId, report.reportedClientName);</span>
+<span class="nc" id="L232">        WorkerHelper helper = new WorkerHelper(messageStore, client, reportedMessage, system);</span>
+<span class="nc" id="L233">        system.spawn(helper);</span>
+<span class="nc" id="L234">    }</span>
+
+    /**
+     * Spawns a worker helper which communicates with the message store to search
+     * messages of the given search querry for author or Text.
+     *
+     * @param message non-null message of type SearchMessages
+     * @throws UnknownClientException thrown if communication id of message is unknown
+     */
+    private void processSearchMessages(Message message) throws UnknownClientException {
+<span class="nc" id="L244">        SearchMessages searchMessage = (SearchMessages) message;</span>
+<span class="nc bnc" id="L245" title="All 2 branches missed.">        if (!ongoingCommunications.containsKey(searchMessage.communicationId))</span>
+<span class="nc" id="L246">            throw new UnknownClientException(&quot;Unknown communication ID&quot;);</span>
+<span class="nc" id="L247">        SimulatedActor client = ongoingCommunications.get(searchMessage.communicationId);</span>
+
+<span class="nc" id="L249">        MessageStoreMessage searchResults = new SearchInStore(searchMessage.searchText, searchMessage.communicationId);</span>
+<span class="nc" id="L250">        WorkerHelper helper = new WorkerHelper(messageStore, client, searchResults, system);</span>
+<span class="nc" id="L251">        system.spawn(helper);</span>
+<span class="nc" id="L252">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
