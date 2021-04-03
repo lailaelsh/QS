@@ -5,11 +5,10 @@ import at.tugraz.ist.qs2021.actorsystem.SimulatedActor;
 import at.tugraz.ist.qs2021.actorsystem.SimulatedActorSystem;
 import at.tugraz.ist.qs2021.messageboard.Dispatcher;
 import at.tugraz.ist.qs2021.messageboard.UnknownClientException;
-import at.tugraz.ist.qs2021.messageboard.clientmessages.FinishAck;
-import at.tugraz.ist.qs2021.messageboard.clientmessages.FinishCommunication;
-import at.tugraz.ist.qs2021.messageboard.clientmessages.InitAck;
-import at.tugraz.ist.qs2021.messageboard.clientmessages.InitCommunication;
+import at.tugraz.ist.qs2021.messageboard.UserMessage;
+import at.tugraz.ist.qs2021.messageboard.clientmessages.*;
 import at.tugraz.ist.qs2021.messageboard.dispatchermessages.Stop;
+import at.tugraz.ist.qs2021.messageboard.dispatchermessages.StopAck;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -261,5 +260,64 @@ public class MessageBoardTests {
         client.getTimeSinceSystemStart();
         system.stop(client);
     }
+    @Test
+    public void DispatchergetDuration() throws UnknownClientException {
 
+            SimulatedActorSystem system = new SimulatedActorSystem();
+            Dispatcher dispatcher = new Dispatcher(system, 0);
+            system.spawn(dispatcher);
+            TestClient client = new TestClient();
+            system.spawn(client);
+
+            TestClient client2 = new TestClient();
+            system.spawn(client2);
+
+            Message Stop = new Stop();
+            Assert.assertEquals(Stop.getDuration(), 2);
+        }
+
+    @Test
+    public void StopAckDuration() throws UnknownClientException {
+        SimulatedActorSystem system = new SimulatedActorSystem();
+        Dispatcher dispatcher = new Dispatcher(system, 0);
+        system.spawn(dispatcher);
+        TestClient client = new TestClient();
+        system.spawn(client);
+
+        Message StopAck = new StopAck(client);
+        Assert.assertEquals(StopAck.getDuration(), 2);
+    }
+    @Test
+    public void Publish() throws UnknownClientException {
+        SimulatedActorSystem system = new SimulatedActorSystem();
+        Dispatcher dispatcher = new Dispatcher(system, 2);
+        system.spawn(dispatcher);
+        TestClient client = new TestClient();
+        system.spawn(client);
+
+        dispatcher.tell(new InitCommunication(client, 10));
+        while (client.receivedMessages.size() == 0)
+            system.runFor(1);
+
+
+        Message initAckMessage = null;
+        initAckMessage = client.receivedMessages.remove();
+        Assert.assertEquals(InitAck.class, initAckMessage.getClass());
+        InitAck initAck = (InitAck) initAckMessage;
+        Assert.assertEquals(Long.valueOf(10), initAck.communicationId);
+
+
+        SimulatedActor worker = initAck.worker;
+
+        UserMessage user_message = new UserMessage("5araaa", "Hallo");
+        Message publish = new Publish(user_message, 10);
+        worker.receive(publish);
+        while (client.receivedMessages.size() == 0)
+            system.runFor(1);
+        worker.tell(new OperationFailed(10));
+        dispatcher.tell(new Stop());
+    }
 }
+
+
+
