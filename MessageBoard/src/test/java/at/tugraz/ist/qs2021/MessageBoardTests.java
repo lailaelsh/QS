@@ -11,6 +11,7 @@ import at.tugraz.ist.qs2021.messageboard.messagestoremessages.*;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.nio.charset.StandardCharsets;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -45,6 +46,48 @@ public class MessageBoardTests {
     /**
      * Simple first test initiating a communication and closing it afterwards.
      */
+
+
+
+    @Test
+    public void AddLikeMessageStore() throws UnknownClientException {
+        // kann nicht von recive aufgerufen werden
+        SimulatedActorSystem system = new SimulatedActorSystem();
+        Dispatcher dispatcher = new Dispatcher(system, 2);
+        system.spawn(dispatcher);
+        TestClient client = new TestClient();
+        system.spawn(client);
+
+        // send request and run system until a response is received
+        // communication id is chosen by clients
+        dispatcher.tell(new InitCommunication(client, 10));
+        while (client.receivedMessages.size() == 0)
+            system.runFor(1);
+
+
+        Message initAckMessage = client.receivedMessages.remove();
+        Assert.assertEquals(InitAck.class, initAckMessage.getClass());
+        InitAck initAck = (InitAck) initAckMessage;
+        Assert.assertEquals(Long.valueOf(10), initAck.communicationId);
+
+        SimulatedActor worker = initAck.worker;
+        UserMessage usermsg = new UserMessage("zeft", "test");
+        Message publish = new Publish(usermsg, 10);
+        worker.receive(publish);
+        while (client.receivedMessages.size() == 0)
+            system.runFor(1);
+        worker.tell(new OperationFailed(10));
+
+        dispatcher.tell(new StopAck(worker));
+
+        //AddLike addlike = new AddLike("Client1", 10, 10);
+        MessageStore msgStore = new MessageStore();
+        AddLike add = new AddLike("client1", 10, 10);
+        Message pub = new Publish(, 10);
+        msgStore.receive(add);
+
+
+    }
     @Test
     public void testCommunication() throws UnknownClientException {
         // testing only the acks
@@ -833,9 +876,9 @@ public class MessageBoardTests {
 
         dispatcher.tell(new StopAck(worker));
 
-
-
     }
+
+
 
 
 
