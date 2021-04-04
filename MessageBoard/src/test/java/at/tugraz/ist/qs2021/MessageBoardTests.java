@@ -59,7 +59,41 @@ public class MessageBoardTests {
     /**
      * Simple first test initiating a communication and closing it afterwards.
      */
+    @Test
+    public void DispatcherstoppingWorker() throws UnknownClientException, InterruptedException {
 
+        SimulatedActorSystem system = new SimulatedActorSystem();
+        Dispatcher dispatcher = new Dispatcher(system, 2);
+        system.spawn(dispatcher);
+        TestClient client = new TestClient();
+        system.spawn(client);
+
+        TestClient client2 = new TestClient();
+        system.spawn(client2);
+
+        //client.tell(new Stop());
+
+
+        MessageStore msgStore =  new MessageStore();
+        Worker worker = new Worker(dispatcher, (SimulatedActor) msgStore, system);
+
+        MessageStore msgStore2 =  new MessageStore();
+        Worker worker2 = new Worker(dispatcher, (SimulatedActor) msgStore2, system);
+
+
+
+
+        dispatcher.receive(new Stop());
+        worker.tell(new Stop());
+        worker2.tell(new Stop());
+
+        //dispatcher.wait(10L, 10);
+        //dispatcher.receive(new Stop());
+
+
+        Message Stop = new Stop();
+        Assert.assertEquals(Stop.getDuration(), 2);
+    }
     @Test(expected = Exception.class)
     public void ClientMessageException() throws UnknownClientException {
         // testing only the acks
@@ -682,6 +716,45 @@ public class MessageBoardTests {
         system.stop(client);
     }
     @Test
+    public void DispatcherstoppingInitCommunication() throws UnknownClientException {
+
+        SimulatedActorSystem system = new SimulatedActorSystem();
+        Dispatcher dispatcher = new Dispatcher(system, 0);
+        system.spawn(dispatcher);
+        TestClient client = new TestClient();
+        system.spawn(client);
+
+        TestClient client2 = new TestClient();
+        system.spawn(client2);
+
+        dispatcher.receive(new Stop());
+        dispatcher.receive(new InitCommunication(client, 10));
+
+        Message Stop = new Stop();
+        Assert.assertEquals(Stop.getDuration(), 2);
+    }
+    @Test
+    public void DispatcherstoppingStopAttack() throws UnknownClientException {
+
+        SimulatedActorSystem system = new SimulatedActorSystem();
+        Dispatcher dispatcher = new Dispatcher(system, 0);
+        system.spawn(dispatcher);
+        TestClient client = new TestClient();
+        system.spawn(client);
+
+        TestClient client2 = new TestClient();
+        system.spawn(client2);
+
+        dispatcher.receive(new Stop());
+        dispatcher.receive(new StopAck(client));
+
+
+        Message Stop = new Stop();
+        Assert.assertEquals(Stop.getDuration(), 2);
+    }
+
+
+    @Test
     public void DispatchergetDuration() throws UnknownClientException {
 
             SimulatedActorSystem system = new SimulatedActorSystem();
@@ -707,6 +780,38 @@ public class MessageBoardTests {
 
         Message StopAck = new StopAck(client);
         Assert.assertEquals(StopAck.getDuration(), 2);
+    }
+    @Test
+    public void PublishEdgeCase() throws UnknownClientException {
+        SimulatedActorSystem system = new SimulatedActorSystem();
+        Dispatcher dispatcher = new Dispatcher(system, 2);
+        system.spawn(dispatcher);
+        TestClient client = new TestClient();
+        system.spawn(client);
+
+        dispatcher.tell(new InitCommunication(client, 10));
+        while (client.receivedMessages.size() == 0)
+            system.runFor(1);
+
+
+        Message initAckMessage = null;
+        initAckMessage = client.receivedMessages.remove();
+        Assert.assertEquals(InitAck.class, initAckMessage.getClass());
+        InitAck initAck = (InitAck) initAckMessage;
+        Assert.assertEquals(Long.valueOf(10), initAck.communicationId);
+
+
+        SimulatedActor worker = initAck.worker;
+
+        UserMessage user_message = new UserMessage("5araaa", "Halloooooooooooooooooo");
+        Message publish = new Publish(user_message, 10);
+        client.tell(new OperationFailed(10));
+        worker.receive(publish);
+        while (client.receivedMessages.size() == 0)
+            system.runFor(1);
+        worker.tell(new OperationFailed(10));
+        dispatcher.tell(new Stop());
+
     }
     @Test
     public void Publish() throws UnknownClientException {
