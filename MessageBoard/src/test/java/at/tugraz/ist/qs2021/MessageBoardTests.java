@@ -46,6 +46,268 @@ public class MessageBoardTests {
     /**
      * Simple first test initiating a communication and closing it afterwards.
      */
+    @Test(expected = Exception.class)
+    public void ProcessLikeException() throws UnknownClientException {
+        // testing only the acks
+        SimulatedActorSystem system = new SimulatedActorSystem();
+        Dispatcher dispatcher = new Dispatcher(system, 2);
+        system.spawn(dispatcher);
+        TestClient client = new TestClient();
+        system.spawn(client);
+
+        // send request and run system until a response is received
+        // communication id is chosen by clients
+        dispatcher.tell(new InitCommunication(client, 10));
+        while (client.receivedMessages.size() == 0)
+            system.runFor(1);
+
+        Message initAckMessage = client.receivedMessages.remove();
+        Assert.assertEquals(InitAck.class, initAckMessage.getClass());
+        InitAck initAck = (InitAck) initAckMessage;
+        Assert.assertEquals(Long.valueOf(10), initAck.communicationId);
+
+        SimulatedActor worker = initAck.worker;
+        UserMessage usertext1 = new UserMessage("5ara", "test");
+        UserMessage usertext2 = new UserMessage("zeft", "test");
+
+
+        worker.tell(new Publish(usertext1, 10));
+        worker.tell(new Like("nila", 0, 0));
+        while (client.receivedMessages.size() == 0)
+            system.runFor(1);
+
+
+    }
+    @Test(expected = Exception.class)
+    public void ProcessDislike() throws UnknownClientException {
+        // testing only the acks
+        SimulatedActorSystem system = new SimulatedActorSystem();
+        Dispatcher dispatcher = new Dispatcher(system, 2);
+        system.spawn(dispatcher);
+        TestClient client = new TestClient();
+        system.spawn(client);
+
+        // send request and run system until a response is received
+        // communication id is chosen by clients
+        dispatcher.tell(new InitCommunication(client, 10));
+        while (client.receivedMessages.size() == 0)
+            system.runFor(1);
+
+        Message initAckMessage = client.receivedMessages.remove();
+        Assert.assertEquals(InitAck.class, initAckMessage.getClass());
+        InitAck initAck = (InitAck) initAckMessage;
+        Assert.assertEquals(Long.valueOf(10), initAck.communicationId);
+
+        SimulatedActor worker = initAck.worker;
+        UserMessage usertext1 = new UserMessage("5ara", "test");
+        UserMessage usertext2 = new UserMessage("zeft", "test");
+
+
+        worker.tell(new Publish(usertext1, 10));
+        worker.tell(new Dislike("nila", 0, 0));
+        while (client.receivedMessages.size() == 0)
+            system.runFor(1);
+
+
+    }
+    @Test(expected = Exception.class)
+    public void ProcessPublishException() throws UnknownClientException {
+        // testing only the acks
+        SimulatedActorSystem system = new SimulatedActorSystem();
+        Dispatcher dispatcher = new Dispatcher(system, 2);
+        system.spawn(dispatcher);
+        TestClient client = new TestClient();
+        system.spawn(client);
+
+        // send request and run system until a response is received
+        // communication id is chosen by clients
+        dispatcher.tell(new InitCommunication(client, 10));
+        while (client.receivedMessages.size() == 0)
+            system.runFor(1);
+
+        Message initAckMessage = client.receivedMessages.remove();
+        Assert.assertEquals(InitAck.class, initAckMessage.getClass());
+        InitAck initAck = (InitAck) initAckMessage;
+        Assert.assertEquals(Long.valueOf(10), initAck.communicationId);
+
+        SimulatedActor worker = initAck.worker;
+        UserMessage usertext1 = new UserMessage("5ara", "test");
+        UserMessage usertext2 = new UserMessage("zeft", "test");
+
+
+        worker.tell(new Publish(usertext1, 10));
+        worker.tell(new Publish(usertext1, 0));
+        while (client.receivedMessages.size() == 0)
+            system.runFor(1);
+
+
+    }
+    @Test(expected = Exception.class)
+    public void ProcessReportException() throws UnknownClientException {
+        // testing only the acks
+        SimulatedActorSystem system = new SimulatedActorSystem();
+        Dispatcher dispatcher = new Dispatcher(system, 2);
+        system.spawn(dispatcher);
+        TestClient client = new TestClient();
+        system.spawn(client);
+
+        // send request and run system until a response is received
+        // communication id is chosen by clients
+        dispatcher.tell(new InitCommunication(client, 10));
+        while (client.receivedMessages.size() == 0)
+            system.runFor(1);
+
+        Message initAckMessage = client.receivedMessages.remove();
+        Assert.assertEquals(InitAck.class, initAckMessage.getClass());
+        InitAck initAck = (InitAck) initAckMessage;
+        Assert.assertEquals(Long.valueOf(10), initAck.communicationId);
+
+        SimulatedActor worker = initAck.worker;
+        UserMessage usertext1 = new UserMessage("5ara", "test");
+        UserMessage usertext2 = new UserMessage("zeft", "test");
+
+
+        worker.tell(new Publish(usertext1, 10));
+        worker.tell(new Report("nila", 0, "5araaa"));
+        while (client.receivedMessages.size() == 0)
+            system.runFor(1);
+
+
+    }
+    @Test(expected = Exception.class)
+    public void ProcessSearchMessageException() throws UnknownClientException {
+        // testing only the acks
+        SimulatedActorSystem system = new SimulatedActorSystem();
+        Dispatcher dispatcher = new Dispatcher(system, 2);
+        system.spawn(dispatcher);
+        TestClient client = new TestClient();
+        system.spawn(client);
+
+        // send request and run system until a response is received
+        // communication id is chosen by clients
+        dispatcher.tell(new InitCommunication(client, 10));
+        while (client.receivedMessages.size() == 0)
+            system.runFor(1);
+
+        Message initAckMessage = client.receivedMessages.remove();
+        Assert.assertEquals(InitAck.class, initAckMessage.getClass());
+        InitAck initAck = (InitAck) initAckMessage;
+        Assert.assertEquals(Long.valueOf(10), initAck.communicationId);
+
+        SimulatedActor worker = initAck.worker;
+        UserMessage usertext1 = new UserMessage("5ara", "test");
+        UserMessage usertext2 = new UserMessage("zeft", "test");
+
+
+        worker.tell(new Publish(usertext1, 10));
+        worker.tell(new SearchMessages("nila", 0));
+        while (client.receivedMessages.size() == 0)
+            system.runFor(1);
+
+
+    }
+    @Test(expected = Exception.class)
+    public void processRetrieveMessages() throws UnknownClientException {
+        // testing only the acks
+        SimulatedActorSystem system = new SimulatedActorSystem();
+        Dispatcher dispatcher = new Dispatcher(system, 2);
+        system.spawn(dispatcher);
+        TestClient client = new TestClient();
+        system.spawn(client);
+
+        // send request and run system until a response is received
+        // communication id is chosen by clients
+        dispatcher.tell(new InitCommunication(client, 10));
+        while (client.receivedMessages.size() == 0)
+            system.runFor(1);
+
+        Message initAckMessage = client.receivedMessages.remove();
+        Assert.assertEquals(InitAck.class, initAckMessage.getClass());
+        InitAck initAck = (InitAck) initAckMessage;
+        Assert.assertEquals(Long.valueOf(10), initAck.communicationId);
+
+        SimulatedActor worker = initAck.worker;
+        UserMessage usertext1 = new UserMessage("5ara", "test");
+        UserMessage usertext2 = new UserMessage("zeft", "test");
+
+
+        worker.tell(new Publish(usertext1, 10));
+        worker.tell(new RetrieveMessages("nila", 0));
+        while (client.receivedMessages.size() == 0)
+            system.runFor(1);
+
+
+    }
+    @Test(expected = Exception.class)
+    public void ProcessFinishException() throws UnknownClientException {
+        // testing only the acks
+        SimulatedActorSystem system = new SimulatedActorSystem();
+        Dispatcher dispatcher = new Dispatcher(system, 2);
+        system.spawn(dispatcher);
+        TestClient client = new TestClient();
+        system.spawn(client);
+
+        // send request and run system until a response is received
+        // communication id is chosen by clients
+        dispatcher.tell(new InitCommunication(client, 10));
+        while (client.receivedMessages.size() == 0)
+            system.runFor(1);
+
+        Message initAckMessage = client.receivedMessages.remove();
+        Assert.assertEquals(InitAck.class, initAckMessage.getClass());
+        InitAck initAck = (InitAck) initAckMessage;
+        Assert.assertEquals(Long.valueOf(10), initAck.communicationId);
+
+        SimulatedActor worker = initAck.worker;
+        UserMessage usertext1 = new UserMessage("5ara", "test");
+        UserMessage usertext2 = new UserMessage("zeft", "test");
+
+
+        worker.tell(new Publish(usertext1, 10));
+        worker.tell(new FinishCommunication(0));
+        while (client.receivedMessages.size() == 0)
+            system.runFor(1);
+
+
+    }
+    @Test
+    public void ProcessClientMessage() throws UnknownClientException {
+        // testing only the acks
+        SimulatedActorSystem system = new SimulatedActorSystem();
+        Dispatcher dispatcher = new Dispatcher(system, 2);
+        system.spawn(dispatcher);
+        TestClient client = new TestClient();
+        system.spawn(client);
+
+        // send request and run system until a response is received
+        // communication id is chosen by clients
+        dispatcher.tell(new InitCommunication(client, 10));
+        while (client.receivedMessages.size() == 0)
+            system.runFor(1);
+
+        Message initAckMessage = client.receivedMessages.remove();
+        Assert.assertEquals(InitAck.class, initAckMessage.getClass());
+        InitAck initAck = (InitAck) initAckMessage;
+        Assert.assertEquals(Long.valueOf(10), initAck.communicationId);
+
+        SimulatedActor worker = initAck.worker;
+        UserMessage usertext1 = new UserMessage("5ara", "test");
+        UserMessage usertext2 = new UserMessage("zeft", "test");
+
+        worker.tell(new Publish(usertext1, 10));
+        
+        while (client.receivedMessages.size() == 0)
+            system.runFor(1);
+
+        Message text = client.receivedMessages.remove();
+
+        client.tell(new OperationFailed (10));
+        Assert.assertEquals(OperationAck.class, text.getClass());
+        OperationAck opAck = (OperationAck) text;
+        Assert.assertEquals(Long.valueOf(10), opAck.communicationId);
+
+
+    }
     @Test
     public void ProcessStop() throws UnknownClientException {
         // testing only the acks
@@ -76,6 +338,8 @@ public class MessageBoardTests {
             system.runFor(1);
 
         Message text = client.receivedMessages.remove();
+
+        client.tell(new OperationFailed (10));
         Assert.assertEquals(OperationAck.class, text.getClass());
         OperationAck opAck = (OperationAck) text;
         Assert.assertEquals(Long.valueOf(10), opAck.communicationId);
