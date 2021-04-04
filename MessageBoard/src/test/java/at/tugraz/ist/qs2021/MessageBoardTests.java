@@ -83,8 +83,9 @@ public class MessageBoardTests {
         //AddLike addlike = new AddLike("Client1", 10, 10);
         MessageStore msgStore = new MessageStore();
         AddLike add = new AddLike("client1", 10, 10);
-        Message pub = new Publish(, 10);
-        msgStore.receive(add);
+        Worker w = new Worker(dispatcher,msgStore , system);
+        worker.receive(add);
+
 
 
     }
