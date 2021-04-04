@@ -745,6 +745,100 @@ public class MessageBoardTests {
         SearchMessages search = new SearchMessages("search", 10);
         search.getDuration();
     }
+    @Test
+    public void UnkownClientExecption() throws UnknownClientException {
+        SimulatedActorSystem system = new SimulatedActorSystem();
+        Dispatcher dispatcher = new Dispatcher(system, 0);
+        system.spawn(dispatcher);
+        TestClient client = new TestClient();
+        system.spawn(client);
+
+        Message StopAck = new StopAck(client);
+        Assert.assertEquals(StopAck.getDuration(), 2);
+
+        UserBanned user = new UserBanned(10);
+        user.getDuration();
+
+        SearchMessages search = new SearchMessages("search", 10);
+        search.getDuration();
+
+        UnknownClientException exception2 = new UnknownClientException("test");
+        exception2.getMessage();
+    }
+
+    @Test
+    public void ToString() throws UnknownClientException {
+        SimulatedActorSystem system = new SimulatedActorSystem();
+        Dispatcher dispatcher = new Dispatcher(system, 0);
+        system.spawn(dispatcher);
+        TestClient client = new TestClient();
+        system.spawn(client);
+
+        UserMessage usermsg = new UserMessage("test", "test");
+        usermsg.toString();
+
+        UserBanned user = new UserBanned(10);
+        user.getDuration();
+
+        SearchMessages search = new SearchMessages("search", 10);
+        search.getDuration();
+
+        UnknownClientException exception2 = new UnknownClientException("test");
+        exception2.getMessage();
+
+    }
+
+    @Test
+    public void StoppingDispatcher() throws UnknownClientException {
+        SimulatedActorSystem system = new SimulatedActorSystem();
+        Dispatcher dispatcher = new Dispatcher(system, 0);
+        system.spawn(dispatcher);
+        TestClient client = new TestClient();
+        system.spawn(client);
+
+        Message forStop = new Stop();
+        Assert.assertEquals(forStop.getDuration(), 2);
+        dispatcher.receive(forStop);
+        dispatcher.tell(new Stop());
+    }
+
+    @Test
+    public void ProcessStopWorker() throws UnknownClientException {
+        // kann nicht von recive aufgerufen werden
+        SimulatedActorSystem system = new SimulatedActorSystem();
+        Dispatcher dispatcher = new Dispatcher(system, 2);
+        system.spawn(dispatcher);
+        TestClient client = new TestClient();
+        system.spawn(client);
+
+        // send request and run system until a response is received
+        // communication id is chosen by clients
+        dispatcher.tell(new InitCommunication(client, 10));
+        while (client.receivedMessages.size() == 0)
+            system.runFor(1);
+
+
+        Message initAckMessage = client.receivedMessages.remove();
+        Assert.assertEquals(InitAck.class, initAckMessage.getClass());
+        InitAck initAck = (InitAck) initAckMessage;
+        Assert.assertEquals(Long.valueOf(10), initAck.communicationId);
+
+        SimulatedActor worker = initAck.worker;
+        UserMessage usermsg = new UserMessage("zeft", "test");
+        Message publish = new Publish(usermsg, 10);
+        worker.receive(publish);
+        while (client.receivedMessages.size() == 0)
+            system.runFor(1);
+        worker.tell(new OperationFailed(10));
+
+        dispatcher.tell(new StopAck(worker));
+
+
+
+    }
+
+
+
 
 
 
