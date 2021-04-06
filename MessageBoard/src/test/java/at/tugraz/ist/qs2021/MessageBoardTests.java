@@ -82,8 +82,6 @@ public class MessageBoardTests {
         Worker worker2 = new Worker(dispatcher, (SimulatedActor) msgStore2, system);
 
 
-
-
         dispatcher.receive(new Stop());
         worker.tell(new Stop());
         worker2.tell(new Stop());
@@ -95,6 +93,7 @@ public class MessageBoardTests {
         Message Stop = new Stop();
         Assert.assertEquals(Stop.getDuration(), 2);
     }
+
     @Test(expected = Exception.class)
     public void ClientMessageException() throws UnknownClientException {
         // testing only the acks
@@ -1249,7 +1248,7 @@ public class MessageBoardTests {
 
             Message Stop = new Stop();
             Assert.assertEquals(Stop.getDuration(), 2);
-        }
+    }
 
     @Test
     public void StopAckDuration() throws UnknownClientException {
@@ -1754,7 +1753,7 @@ public class MessageBoardTests {
     }
 
     @Test
-    public void SeachMessages() throws UnknownClientException {
+    public void SearchMessages() throws UnknownClientException {
         SimulatedActorSystem system = new SimulatedActorSystem();
         Dispatcher dispatcher = new Dispatcher(system, 0);
         system.spawn(dispatcher);
@@ -1857,9 +1856,59 @@ public class MessageBoardTests {
         worker.tell(new OperationFailed(10));
 
         dispatcher.tell(new StopAck(worker));
-
     }
 
+    @Test
+    public void TickCheck() throws UnknownClientException {
+        SimulatedActorSystem system = new SimulatedActorSystem();
+        Dispatcher dispatcher = new Dispatcher(system, 2);
+        system.spawn(dispatcher);
+        TestClient client1 = new TestClient();
+        TestClient client2 = new TestClient();
+
+        system.spawn(client1);
+        system.spawn(client2);
+
+        // send request and run system until a response is received
+        // communication id is chosen by clients
+        dispatcher.tell(new InitCommunication(client1, 10));
+        dispatcher.tell(new InitCommunication(client2, 11));
+        while (client1.receivedMessages.size() == 0)
+            system.runFor(1);
+        while (client2.receivedMessages.size() == 0)
+            system.runFor(1);
+
+
+        Message initAckMessage1 = client1.receivedMessages.remove();
+        Assert.assertEquals(InitAck.class, initAckMessage1.getClass());
+        InitAck initAck1 = (InitAck) initAckMessage1;
+        Assert.assertEquals(Long.valueOf(10), initAck1.communicationId);
+
+        Message initAckMessage2 = client2.receivedMessages.remove();
+        Assert.assertEquals(InitAck.class, initAckMessage2.getClass());
+        InitAck initAck2 = (InitAck) initAckMessage2;
+        Assert.assertEquals(Long.valueOf(11), initAck2.communicationId);
+
+        SimulatedActor worker1 = initAck1.worker;
+        SimulatedActor worker2 = initAck2.worker;
+        UserMessage usermsg1 = new UserMessage("zeft", "test");
+        UserMessage usermsg2 = new UserMessage("zeft", "test");
+        Message publish1 = new Publish(usermsg1, 10);
+        Message publish2 = new Publish(usermsg2, 11);
+
+
+        dispatcher.tell(new Stop());
+        Report report = new Report("zeft", 10, "gela") ;
+        SimulatedActor simulated_client;
+        simulated_client = initAck1.worker;
+        MessageStoreMessage reportedMessage = new AddReport(report.clientName, report.communicationId, report.reportedClientName);
+        WorkerHelper helper = new WorkerHelper(simulated_client, client1, reportedMessage, system);
+        system.spawn(helper);
+
+        for (int i = 0; i < 12; i++)
+            helper.tick();
+
+    }
 
 
 
