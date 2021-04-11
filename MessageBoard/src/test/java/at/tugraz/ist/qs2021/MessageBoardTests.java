@@ -380,13 +380,18 @@ public class MessageBoardTests {
         worker2.tell(new Publish(new UserMessage("c1", "r"), 11));
         worker2.tell(new Publish(new UserMessage("c1", "r"), 11));
         worker2.tell(new SearchMessages("dd", 11));
-        while (client2.receivedMessages.size() == 0)
+        while (client2.receivedMessages.size() < 2)
             system.runFor(1);
 
         Message msg1 = client2.receivedMessages.remove();
         Assert.assertEquals(OperationAck.class, msg1.getClass());
         OperationAck opAck1 = (OperationAck) msg1;
         Assert.assertEquals(Long.valueOf(11), opAck1.communicationId);
+
+        Message msg2 = client2.receivedMessages.remove();
+        Assert.assertEquals(OperationFailed.class, msg2.getClass());
+        OperationFailed opAck2 = (OperationFailed) msg2;
+        Assert.assertEquals(Long.valueOf(11), opAck2.communicationId);
 
     }
     @Test
@@ -447,10 +452,21 @@ public class MessageBoardTests {
             system.runFor(1);
 
         Message msg1 = client2.receivedMessages.remove();
+        client.receivedMessages.size();
         Assert.assertEquals(OperationAck.class, msg1.getClass());
         OperationAck opAck1 = (OperationAck) msg1;
         Assert.assertEquals(Long.valueOf(11), opAck1.communicationId);
 
+        worker2.tell(new Publish(new UserMessage("c1", "r"), 11));
+        worker2.tell(new Publish(new UserMessage("c1", "r"), 11));
+        worker2.tell(new SearchMessages("dd", 11));
+        while (client2.receivedMessages.size() == 0)
+            system.runFor(1);
+
+        Message msg2 = client2.receivedMessages.remove();
+        Assert.assertEquals(UserBanned.class, msg2.getClass());
+        UserBanned opAck2 = (UserBanned) msg2;
+        Assert.assertEquals(Long.valueOf(11), opAck2.communicationId);
     }
 
     @Test
@@ -513,6 +529,21 @@ public class MessageBoardTests {
         OperationAck opAck1 = (OperationAck) msg1;
         Assert.assertEquals(Long.valueOf(11), opAck1.communicationId);
 
+        worker2.tell(new Publish(new UserMessage("c1", "r"), 11));
+        worker2.tell(new Like("c1", 11, 0));
+        while (client2.receivedMessages.size() < 2)
+            system.runFor(1);
+
+        Message msg2 = client2.receivedMessages.remove();
+        Assert.assertEquals(UserBanned.class, msg2.getClass());
+        UserBanned opAck2 = (UserBanned) msg2;
+        Assert.assertEquals(Long.valueOf(11), opAck2.communicationId);
+
+        Message msg3 = client2.receivedMessages.remove();
+        Assert.assertEquals(OperationFailed.class, msg3.getClass());
+        OperationFailed opAck3 = (OperationFailed) msg3;
+        Assert.assertEquals(Long.valueOf(11), opAck3.communicationId);
+
     }
 
     @Test
@@ -574,6 +605,16 @@ public class MessageBoardTests {
         OperationAck opAck1 = (OperationAck) msg1;
         Assert.assertEquals(Long.valueOf(11), opAck1.communicationId);
 
+        worker2.tell(new Publish(new UserMessage("c1", "r"), 11));
+        worker2.tell(new Dislike("c1", 11, 0));
+        while (client2.receivedMessages.size() == 0)
+            system.runFor(1);
+
+        Message msg2 = client2.receivedMessages.remove();
+        Assert.assertEquals(UserBanned.class, msg2.getClass());
+        UserBanned opAck2 = (UserBanned) msg2;
+        Assert.assertEquals(Long.valueOf(11), opAck2.communicationId);
+
     }
 
     @Test
@@ -634,6 +675,17 @@ public class MessageBoardTests {
         Assert.assertEquals(OperationAck.class, msg1.getClass());
         OperationAck opAck1 = (OperationAck) msg1;
         Assert.assertEquals(Long.valueOf(11), opAck1.communicationId);
+
+
+        worker2.tell(new Publish(new UserMessage("c1", "r"), 11));
+        worker2.tell(new Report("c1", 11, "c26"));
+        while (client2.receivedMessages.size() == 0)
+            system.runFor(1);
+
+        Message msg2 = client2.receivedMessages.remove();
+        Assert.assertEquals(UserBanned.class, msg2.getClass());
+        UserBanned opAck2 = (UserBanned) msg2;
+        Assert.assertEquals(Long.valueOf(11), opAck2.communicationId);
 
     }
 
@@ -942,16 +994,24 @@ public class MessageBoardTests {
 
         worker.tell(new Publish(usertext1, 10));
         worker.tell(new Like ("Client1", 10,0));
-       // worker.tell(new Like ("Client1", 10,0));
         worker.tell(new Like ("Client1", 10,1));
-        while (client.receivedMessages.size() == 0)
-            system.runFor(1);
+        //while (client.receivedMessages.size() < 3)
+        system.runFor(30);
 
         Message text = client.receivedMessages.remove();
         Assert.assertEquals(OperationAck.class, text.getClass());
         OperationAck opAck = (OperationAck) text;
         Assert.assertEquals(Long.valueOf(10), opAck.communicationId);
 
+        Message text2 = client.receivedMessages.remove();
+        Assert.assertEquals(OperationAck.class, text2.getClass());
+        OperationAck opAck2 = (OperationAck) text2;
+        Assert.assertEquals(Long.valueOf(10), opAck2.communicationId);
+
+        Message text3 = client.receivedMessages.remove();
+        Assert.assertEquals(OperationFailed.class, text3.getClass());
+        OperationFailed opfailed = (OperationFailed) text3;
+        Assert.assertEquals(Long.valueOf(10), opfailed.communicationId);
     }
 
     @Test
@@ -1628,12 +1688,17 @@ public class MessageBoardTests {
 
         worker.tell(new Dislike("Client2", 10, 0));
         worker.tell(new Dislike("Client2", 10, 1));
-        while (client.receivedMessages.size() == 0)
+        while (client.receivedMessages.size() < 2)
             system.runFor(1);
 
         Message failed = client.receivedMessages.remove();
         Assert.assertEquals(OperationFailed.class, failed.getClass());
 
+//        Message text2 = client.receivedMessages.remove();
+//        Assert.assertEquals(OperationAck.class, text2.getClass());
+//
+        Message text3 = client.receivedMessages.remove();
+        Assert.assertEquals(OperationFailed.class, text3.getClass());
         dispatcher.tell(new Stop());
 
     }
@@ -1845,9 +1910,15 @@ public class MessageBoardTests {
         UserMessage usermsg = new UserMessage("zeft", "test");
         Message publish = new Publish(usermsg, 10);
         worker.receive(publish);
-        while (client.receivedMessages.size() == 0)
+        while (client.receivedMessages.size() < 1)
             system.runFor(1);
+
+        Message text = client.receivedMessages.remove();
+        Assert.assertEquals(OperationAck.class, text.getClass());
+        OperationAck opAck = (OperationAck) text;
+        Assert.assertEquals(Long.valueOf(10), opAck.communicationId);
         worker.tell(new OperationFailed(10));
+
 
         dispatcher.tell(new StopAck(worker));
     }
