@@ -200,12 +200,12 @@ public class MessageBoardTests {
         UserMessage usertext1 = new UserMessage("5ara", "test");
         UserMessage usertext2 = new UserMessage("zeft", "test");
 
-
+        Like likemessage = new Like("nila", 0, 0);
         worker.tell(new Publish(usertext1, 10));
-        worker.tell(new Like("nila", 0, 0));
+        worker.tell(likemessage);
+        Assert.assertEquals(likemessage.getDuration(), 1);
         while (client.receivedMessages.size() == 0)
             system.runFor(1);
-
 
     }
     @Test(expected = Exception.class)
@@ -797,12 +797,15 @@ public class MessageBoardTests {
 
         // send request and run system until a response is received
         // communication id is chosen by clients
-        dispatcher.tell(new InitCommunication(client, 10));
+        InitCommunication initmessage = new InitCommunication(client, 10);
+        dispatcher.tell(initmessage);
+        Assert.assertEquals(initmessage.getDuration(), 2);
         while (client.receivedMessages.size() == 0)
             system.runFor(1);
 
         Message initAckMessage = client.receivedMessages.remove();
         Assert.assertEquals(InitAck.class, initAckMessage.getClass());
+        Assert.assertEquals(initAckMessage.getDuration(), 1);
         InitAck initAck = (InitAck) initAckMessage;
         Assert.assertEquals(Long.valueOf(10), initAck.communicationId);
 
@@ -810,9 +813,10 @@ public class MessageBoardTests {
         UserMessage usertext1 = new UserMessage("5ara", "test");
         UserMessage usertext2 = new UserMessage("zeft", "test");
 
-
+        FinishCommunication finishmessage = new FinishCommunication(0);
         worker.tell(new Publish(usertext1, 10));
-        worker.tell(new FinishCommunication(0));
+        worker.tell(finishmessage);
+        Assert.assertEquals(finishmessage.getDuration(), 3);
         while (client.receivedMessages.size() == 0)
             system.runFor(1);
 
@@ -1080,6 +1084,7 @@ public class MessageBoardTests {
         Message finAckMessage = client.receivedMessages.remove();
         Assert.assertEquals(FinishAck.class, finAckMessage.getClass());
         FinishAck finAck = (FinishAck) finAckMessage;
+        Assert.assertEquals(finAck.getDuration(),1);
 
         Assert.assertEquals(Long.valueOf(10), finAck.communicationId);
         dispatcher.tell(new Stop());
@@ -1433,6 +1438,7 @@ public class MessageBoardTests {
         message_que = client.receivedMessages.remove();
         Assert.assertEquals(FoundMessages.class, message_que.getClass());
         FoundMessages resMessage = (FoundMessages) message_que;
+        Assert.assertEquals(resMessage.getDuration(), 1);
         Assert.assertEquals(Long.valueOf(10), resMessage.communicationId);
 
         Message retrieve = new RetrieveMessages("zeft", 10);
@@ -1495,7 +1501,9 @@ public class MessageBoardTests {
         OperationAck opAck = (OperationAck) message_que;
         Assert.assertEquals(Long.valueOf(10), opAck.communicationId);
 
-        worker.tell(new RetrieveMessages("zeft", 10));
+        RetrieveMessages retrievemessage  = new RetrieveMessages("zeft", 10);
+        worker.tell(retrievemessage);
+        Assert.assertEquals(retrievemessage.getDuration(),3);
         while (client.receivedMessages.size() == 0)
             system.runFor(1);
 
@@ -1570,6 +1578,7 @@ public class MessageBoardTests {
         Assert.assertEquals(OperationAck.class, message_que.getClass());
         OperationAck opAck = (OperationAck) message_que;
         Assert.assertEquals(Long.valueOf(10), opAck.communicationId);
+        Assert.assertEquals(opAck.getDuration(), 1);
 
         worker.tell(new RetrieveMessages("zeft", 10));
         while (client.receivedMessages.size() == 0)
@@ -2068,9 +2077,11 @@ public class MessageBoardTests {
         SimulatedActor worker = initAck.worker;
         UserMessage usertext1 = new UserMessage("5ara", "test");
         UserMessage usertext2 = new UserMessage("zeft", "test");
+        Dislike dmessage = new Dislike ("Client1", 10,0);
 
         worker.tell(new Publish(usertext1, 10));
-        worker.tell(new Dislike ("Client1", 10,0));
+        worker.tell(dmessage);
+        Assert.assertEquals(dmessage.getDuration(), 1);
         worker.tell(new Publish (usertext1, 10));
         while (client.receivedMessages.size() == 0)
             system.runFor(1);
@@ -2151,6 +2162,7 @@ public class MessageBoardTests {
         Message Stop = new Stop();
         Assert.assertEquals(Stop.getDuration(), 2);
     }
+
 
 }
 
