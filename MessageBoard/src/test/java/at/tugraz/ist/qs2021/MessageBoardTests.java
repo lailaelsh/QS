@@ -1,5 +1,6 @@
 package at.tugraz.ist.qs2021;
 
+import at.tugraz.ist.qs2021.actorsystem.ISimulatedActor;
 import at.tugraz.ist.qs2021.actorsystem.Message;
 import at.tugraz.ist.qs2021.actorsystem.SimulatedActor;
 import at.tugraz.ist.qs2021.actorsystem.SimulatedActorSystem;
@@ -70,6 +71,44 @@ public class MessageBoardTests {
     /**
      * Simple first test initiating a communication and closing it afterwards.
      */
+
+
+    @Test(expected = Exception.class)
+    public void SimulatedTickTimeSinceSystemStart() throws UnknownClientException {
+        // testing only the acks
+        SimulatedActorSystem system = new SimulatedActorSystem();
+        Dispatcher dispatcher = new Dispatcher(system, 2);
+        system.spawn(dispatcher);
+        TestClient client = new TestClient();
+        int time = client.getTimeSinceSystemStart();
+        Assert.assertNotEquals(0, time);
+        client.tick();
+        //Assert.assertNotEquals(0, client.getMessageLog().size());
+        Assert.assertFalse(client.getTimeSinceSystemStart() < time);
+        system.spawn(client);
+        // send request and run system until a response is received
+        // communication id is chosen by clients
+        dispatcher.tell(new InitCommunication(client, 10));
+        while (client.receivedMessages.size() == 0)
+            system.runFor(1);
+
+        Message initAckMessage = client.receivedMessages.remove();
+        Assert.assertEquals(InitAck.class, initAckMessage.getClass());
+        InitAck initAck = (InitAck) initAckMessage;
+        Assert.assertEquals(Long.valueOf(10), initAck.communicationId);
+
+        SimulatedActor worker = initAck.worker;
+        UserMessage usertext1 = new UserMessage("5ara", "test");
+        UserMessage usertext2 = new UserMessage("zeft", "test");
+
+
+        worker.tell(new Publish(usertext1, 10));
+        worker.tell(new Dislike("nila", 0, 0));
+        while (client.receivedMessages.size() == 0)
+            system.runFor(1);
+
+
+    }
     @Test
     public void DispatcherstoppingWorker() throws UnknownClientException, InterruptedException {
 
@@ -1243,6 +1282,7 @@ public class MessageBoardTests {
         // communication id is chosen by clients
         dispatcher.tell(new InitCommunication(client, 10));
         system.runUntil(100);
+
         SimulatedActorSystem runUntil = new SimulatedActorSystem();
         Assert.assertEquals(SimulatedActorSystem.class, runUntil.getClass());
         while (client.receivedMessages.size() == 0)
@@ -1915,6 +1955,7 @@ public class MessageBoardTests {
         Assert.assertEquals(Long.valueOf(10), initAck.communicationId);
 
         client.getMessageLog();
+        Assert.assertNotEquals(0,client.getMessageLog().size());
         SimulatedActor worker = initAck.worker;
         UserMessage usermsg = new UserMessage("zeft", "test");
         Message publish = new Publish(usermsg, 10);
