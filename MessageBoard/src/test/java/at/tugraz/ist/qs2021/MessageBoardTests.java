@@ -72,7 +72,19 @@ public class MessageBoardTests {
     /**
      * Simple first test initiating a communication and closing it afterwards.
      */
+    @Test
+    public void MessageStoreElse() throws UnknownClientException, InterruptedException {
 
+        MessageStore msg = new MessageStore();
+        CustomMessage new_msg = new CustomMessage(10);
+        new_msg.storeClient = new SimulatedActor() {
+            @Override
+            public void receive(Message message){
+
+            }
+        };
+        msg.receive(new_msg);
+    }
 
     @Test(expected = Exception.class)
     public void SimulatedTickTimeSinceSystemStart() throws UnknownClientException {
