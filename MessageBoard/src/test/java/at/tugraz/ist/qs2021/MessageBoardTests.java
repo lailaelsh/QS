@@ -189,6 +189,39 @@ public class MessageBoardTests {
 
 
     }
+
+    @Test
+    public void ClientMessageDoubleStop() throws UnknownClientException {
+        // testing only the acks
+        SimulatedActorSystem system = new SimulatedActorSystem();
+        Dispatcher dispatcher = new Dispatcher(system, 2);
+        system.spawn(dispatcher);
+        TestClient client = new TestClient();
+        system.spawn(client);
+
+        // send request and run system until a response is received
+        // communication id is chosen by clients
+        dispatcher.tell(new InitCommunication(client, 10));
+        while (client.receivedMessages.size() == 0)
+            system.runFor(1);
+
+        Message initAckMessage = client.receivedMessages.remove();
+        Assert.assertEquals(InitAck.class, initAckMessage.getClass());
+        InitAck initAck = (InitAck) initAckMessage;
+        Assert.assertEquals(Long.valueOf(10), initAck.communicationId);
+
+        SimulatedActor worker = initAck.worker;
+        UserMessage usertext1 = new UserMessage("5ara", "test");
+        UserMessage usertext2 = new UserMessage("zeft", "test");
+
+
+        worker.tell(new Publish(usertext1, 10));
+        worker.tell(new Stop());
+        worker.tell(new Stop());
+        system.runFor(30);
+        while (client.receivedMessages.size() == 0)
+            system.runFor(1);
+    }
     @Test
     public void ProcessClientMessage() throws UnknownClientException {
         // testing only the acks
