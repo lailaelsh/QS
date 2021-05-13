@@ -1,0 +1,3819 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>SimpleFunctions.scala</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package at.tugraz.ist.qs2021.simple</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>object SimpleFunctions {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  // -------------------------------------------------------------------------------------------------------------------</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  // Insertion sort</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * Insertion sort</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * @param xs List to sort</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * @return sorted list</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_14'/>
+14
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_14'>2</a>
+<span>
+1. insertionSort : removed call to scala/MatchError::&#60;init&#62; &rarr; NO_COVERAGE<br/>
+2. insertionSort : replaced return value with null for at/tugraz/ist/qs2021/simple/SimpleFunctions$::insertionSort &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>  def insertionSort(xs: List[Int]): List[Int] = xs match {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_15'/>
+15
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_15'>6</a>
+<span>
+1. insertionSort : negated conditional &rarr; KILLED<br/>
+2. insertionSort : removed call to java/lang/Object::equals &rarr; KILLED<br/>
+3. insertionSort : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+4. insertionSort : equal to greater than &rarr; KILLED<br/>
+5. insertionSort : equal to greater or equal &rarr; KILLED<br/>
+6. insertionSort : equal to not equal &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    case Nil =&#62; Nil</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_16'/>
+16
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_16'>13</a>
+<span>
+1. insertionSort : replaced call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::insertionSort with argument &rarr; KILLED<br/>
+2. insertionSort : replaced call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::insert with argument &rarr; KILLED<br/>
+3. insertionSort : negated conditional &rarr; KILLED<br/>
+4. insertionSort : removed call to scala/collection/immutable/$colon$colon::head &rarr; KILLED<br/>
+5. insertionSort : removed call to scala/runtime/BoxesRunTime::unboxToInt &rarr; KILLED<br/>
+6. insertionSort : removed call to scala/collection/immutable/$colon$colon::next$access$1 &rarr; KILLED<br/>
+7. insertionSort : removed call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::insertionSort &rarr; KILLED<br/>
+8. insertionSort : removed call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::insert &rarr; KILLED<br/>
+9. insertionSort : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+10. insertionSort : Negated integer local variable number 5 &rarr; KILLED<br/>
+11. insertionSort : equal to greater than &rarr; KILLED<br/>
+12. insertionSort : equal to greater or equal &rarr; KILLED<br/>
+13. insertionSort : equal to not equal &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    case a :: as =&#62; insert(a, insertionSort(as))</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * Insertion sort helper method.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * Inserts a new element x into already sorted list xs</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * @param x  new element to insert</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * @param xs already sorted list</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * @return</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_28'/>
+28
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_28'>2</a>
+<span>
+1. insert : removed call to scala/MatchError::&#60;init&#62; &rarr; NO_COVERAGE<br/>
+2. insert : replaced return value with null for at/tugraz/ist/qs2021/simple/SimpleFunctions$::insert &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>  private def insert(x: Int, xs: List[Int]): List[Int] = xs match {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_29'/>
+29
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_29'>20</a>
+<span>
+1. insert : Substituted 1 with 0 &rarr; KILLED<br/>
+2. insert : Substituted 0 with 1 &rarr; KILLED<br/>
+3. insert : negated conditional &rarr; KILLED<br/>
+4. insert : removed call to java/lang/Object::equals &rarr; KILLED<br/>
+5. insert : removed call to scala/runtime/ScalaRunTime$::wrapIntArray &rarr; KILLED<br/>
+6. insert : removed call to scala/collection/immutable/List$::apply &rarr; KILLED<br/>
+7. insert : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+8. insert : Negated integer local variable number 1 &rarr; KILLED<br/>
+9. insert : Substituted 0 with 1 &rarr; KILLED<br/>
+10. insert : Substituted 1 with 0 &rarr; KILLED<br/>
+11. insert : Substituted 1 with -1 &rarr; KILLED<br/>
+12. insert : Substituted 0 with -1 &rarr; KILLED<br/>
+13. insert : Substituted 1 with -1 &rarr; KILLED<br/>
+14. insert : Substituted 1 with 2 &rarr; KILLED<br/>
+15. insert : Substituted 0 with 1 &rarr; KILLED<br/>
+16. insert : Substituted 1 with 0 &rarr; KILLED<br/>
+17. insert : Substituted 0 with -1 &rarr; KILLED<br/>
+18. insert : equal to greater than &rarr; KILLED<br/>
+19. insert : equal to greater or equal &rarr; KILLED<br/>
+20. insert : equal to not equal &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    case Nil =&#62; List(x)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_30'/>
+30
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_30'>8</a>
+<span>
+1. insert : negated conditional &rarr; KILLED<br/>
+2. insert : removed call to scala/collection/immutable/$colon$colon::head &rarr; KILLED<br/>
+3. insert : removed call to scala/runtime/BoxesRunTime::unboxToInt &rarr; KILLED<br/>
+4. insert : removed call to scala/collection/immutable/$colon$colon::next$access$1 &rarr; KILLED<br/>
+5. insert : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+6. insert : equal to greater than &rarr; KILLED<br/>
+7. insert : equal to greater or equal &rarr; KILLED<br/>
+8. insert : equal to not equal &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    case a :: as =&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_31'/>
+31
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_31'>13</a>
+<span>
+1. insert : negated conditional &rarr; KILLED<br/>
+2. insert : removed call to scala/runtime/BoxesRunTime::boxToInteger &rarr; KILLED<br/>
+3. insert : removed call to scala/collection/immutable/List::$colon$colon &rarr; KILLED<br/>
+4. insert : removed conditional - replaced comparison check with false &rarr; KILLED<br/>
+5. insert : removed conditional - replaced comparison check with true &rarr; KILLED<br/>
+6. insert : replaced call to scala/collection/immutable/List::$colon$colon with receiver &rarr; KILLED<br/>
+7. insert : Negated integer local variable number 6 &rarr; KILLED<br/>
+8. insert : Negated integer local variable number 1 &rarr; KILLED<br/>
+9. insert : Negated integer local variable number 1 &rarr; KILLED<br/>
+10. insert : Negated integer local variable number 8 &rarr; KILLED<br/>
+11. insert : Less than to greater or equal &rarr; KILLED<br/>
+12. insert : Less than to equal &rarr; KILLED<br/>
+13. insert : Less than to not equal &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      if (a &#62;= x) x :: xs</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_32'/>
+32
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_32'>8</a>
+<span>
+1. insert : replaced call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::insert with argument &rarr; KILLED<br/>
+2. insert : removed call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::insert &rarr; KILLED<br/>
+3. insert : removed call to scala/runtime/BoxesRunTime::boxToInteger &rarr; KILLED<br/>
+4. insert : removed call to scala/collection/immutable/List::$colon$colon &rarr; KILLED<br/>
+5. insert : replaced call to scala/collection/immutable/List::$colon$colon with receiver &rarr; KILLED<br/>
+6. insert : Negated integer local variable number 6 &rarr; KILLED<br/>
+7. insert : Negated integer local variable number 1 &rarr; KILLED<br/>
+8. insert : Negated integer local variable number 9 &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      else a :: insert(x, as)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  // -------------------------------------------------------------------------------------------------------------------</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  // Maximum</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * Get largest integer/maximum of list</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * @param xs a non-empty list</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * @return largest integer</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_44'/>
+44
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_44'>3</a>
+<span>
+1. max : removed call to scala/MatchError::&#60;init&#62; &rarr; NO_COVERAGE<br/>
+2. max : replaced int return with 0 for at/tugraz/ist/qs2021/simple/SimpleFunctions$::max &rarr; KILLED<br/>
+3. max : Negated integer local variable number 2 &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>  def max(xs: List[Int]): Int = xs match {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_45'/>
+45
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_45'>11</a>
+<span>
+1. max : replaced call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::max with argument &rarr; KILLED<br/>
+2. max : negated conditional &rarr; KILLED<br/>
+3. max : removed call to scala/collection/immutable/$colon$colon::head &rarr; KILLED<br/>
+4. max : removed call to scala/runtime/BoxesRunTime::unboxToInt &rarr; KILLED<br/>
+5. max : removed call to scala/collection/immutable/$colon$colon::next$access$1 &rarr; KILLED<br/>
+6. max : removed call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::max &rarr; KILLED<br/>
+7. max : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+8. max : Negated integer local variable number 5 &rarr; KILLED<br/>
+9. max : equal to greater than &rarr; KILLED<br/>
+10. max : equal to greater or equal &rarr; KILLED<br/>
+11. max : equal to not equal &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    case a :: as =&#62; max(a, as)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * Tail recursive helper function for maximum.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * Gives maximum of integer x and list xs</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * @param x  a integer</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * @param xs a list</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * @return maximum of x and xs</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  @scala.annotation.tailrec</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_57'/>
+57
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_57'>3</a>
+<span>
+1. max : removed call to scala/MatchError::&#60;init&#62; &rarr; NO_COVERAGE<br/>
+2. max : replaced int return with 0 for at/tugraz/ist/qs2021/simple/SimpleFunctions$::max &rarr; KILLED<br/>
+3. max : Negated integer local variable number 4 &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>  private def max(x: Int, xs: List[Int]): Int = xs match {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_58'/>
+58
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_58'>7</a>
+<span>
+1. max : negated conditional &rarr; KILLED<br/>
+2. max : removed call to java/lang/Object::equals &rarr; KILLED<br/>
+3. max : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+4. max : Negated integer local variable number 1 &rarr; KILLED<br/>
+5. max : equal to greater than &rarr; KILLED<br/>
+6. max : equal to greater or equal &rarr; KILLED<br/>
+7. max : equal to not equal &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    case Nil =&#62; x</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_59'/>
+59
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_59'>8</a>
+<span>
+1. max : negated conditional &rarr; KILLED<br/>
+2. max : removed call to scala/collection/immutable/$colon$colon::head &rarr; KILLED<br/>
+3. max : removed call to scala/runtime/BoxesRunTime::unboxToInt &rarr; KILLED<br/>
+4. max : removed call to scala/collection/immutable/$colon$colon::next$access$1 &rarr; KILLED<br/>
+5. max : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+6. max : equal to greater than &rarr; KILLED<br/>
+7. max : equal to greater or equal &rarr; KILLED<br/>
+8. max : equal to not equal &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    case a :: as =&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_60'/>
+60
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_60'>9</a>
+<span>
+1. max : negated conditional &rarr; KILLED<br/>
+2. max : removed conditional - replaced comparison check with false &rarr; KILLED<br/>
+3. max : removed conditional - replaced comparison check with true &rarr; KILLED<br/>
+4. max : Negated integer local variable number 1 &rarr; KILLED<br/>
+5. max : Negated integer local variable number 7 &rarr; KILLED<br/>
+6. max : Negated integer local variable number 1 &rarr; KILLED<br/>
+7. max : Less than to greater or equal &rarr; KILLED<br/>
+8. max : Less than to equal &rarr; KILLED<br/>
+9. max : Less than to not equal &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      if (x &#62;= a) max(x, as)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_61'/>
+61
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_61'>1</a>
+<span>
+1. max : Negated integer local variable number 7 &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      else max(a, as)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  // -------------------------------------------------------------------------------------------------------------------</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  // Min Index</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * Get the index of the smallest element of a list</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * @param xs a non-empty list</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * @return the index of the smallest element</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_73'/>
+73
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_73'>3</a>
+<span>
+1. minIndex : removed call to scala/MatchError::&#60;init&#62; &rarr; NO_COVERAGE<br/>
+2. minIndex : replaced int return with 0 for at/tugraz/ist/qs2021/simple/SimpleFunctions$::minIndex &rarr; SURVIVED<br/>
+3. minIndex : Negated integer local variable number 2 &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>  def minIndex(xs: List[Int]): Int = xs match {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_74'/>
+74
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_74'>22</a>
+<span>
+1. minIndex : removed call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::minIndex &rarr; SURVIVED<br/>
+2. minIndex : Negated integer local variable number 5 &rarr; SURVIVED<br/>
+3. minIndex : replaced call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::minIndex with argument &rarr; KILLED<br/>
+4. minIndex : Substituted 0 with 1 &rarr; KILLED<br/>
+5. minIndex : Substituted 1 with 0 &rarr; KILLED<br/>
+6. minIndex : negated conditional &rarr; KILLED<br/>
+7. minIndex : removed call to scala/collection/immutable/$colon$colon::head &rarr; KILLED<br/>
+8. minIndex : removed call to scala/runtime/BoxesRunTime::unboxToInt &rarr; KILLED<br/>
+9. minIndex : removed call to scala/collection/immutable/$colon$colon::next$access$1 &rarr; KILLED<br/>
+10. minIndex : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+11. minIndex : Substituted 0 with 1 &rarr; KILLED<br/>
+12. minIndex : Substituted 1 with 0 &rarr; KILLED<br/>
+13. minIndex : Substituted 0 with -1 &rarr; KILLED<br/>
+14. minIndex : Substituted 1 with -1 &rarr; KILLED<br/>
+15. minIndex : Substituted 1 with -1 &rarr; KILLED<br/>
+16. minIndex : Substituted 0 with 1 &rarr; KILLED<br/>
+17. minIndex : Substituted 1 with 2 &rarr; KILLED<br/>
+18. minIndex : Substituted 0 with -1 &rarr; KILLED<br/>
+19. minIndex : Substituted 1 with 0 &rarr; KILLED<br/>
+20. minIndex : equal to greater than &rarr; KILLED<br/>
+21. minIndex : equal to greater or equal &rarr; KILLED<br/>
+22. minIndex : equal to not equal &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    case a :: as =&#62; minIndex(as, 0, a, 1)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_76'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_77'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * Tail recursive helper function for minIndex.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_79'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * @param xs           a list</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_81'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * @param minimalIndex the current index of the minimal value</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_82'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * @param minimalValue the current minimal value</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_83'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * @param currentIndex the list index of the current element</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_84'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * @return the index of the smallest element</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_85'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_86'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  @scala.annotation.tailrec</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_87'/>
+87
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_87'>3</a>
+<span>
+1. minIndex : removed call to scala/MatchError::&#60;init&#62; &rarr; NO_COVERAGE<br/>
+2. minIndex : replaced int return with 0 for at/tugraz/ist/qs2021/simple/SimpleFunctions$::minIndex &rarr; SURVIVED<br/>
+3. minIndex : Negated integer local variable number 6 &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>  private def minIndex(xs: List[Int], minimalIndex: Int, minimalValue: Int, currentIndex: Int): Int = xs match {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_88'/>
+88
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_88'>7</a>
+<span>
+1. minIndex : negated conditional &rarr; KILLED<br/>
+2. minIndex : removed call to java/lang/Object::equals &rarr; KILLED<br/>
+3. minIndex : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+4. minIndex : Negated integer local variable number 2 &rarr; KILLED<br/>
+5. minIndex : equal to greater than &rarr; KILLED<br/>
+6. minIndex : equal to greater or equal &rarr; KILLED<br/>
+7. minIndex : equal to not equal &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    case Nil =&#62; minimalIndex</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_89'/>
+89
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_89'>8</a>
+<span>
+1. minIndex : negated conditional &rarr; KILLED<br/>
+2. minIndex : removed call to scala/collection/immutable/$colon$colon::head &rarr; KILLED<br/>
+3. minIndex : removed call to scala/runtime/BoxesRunTime::unboxToInt &rarr; KILLED<br/>
+4. minIndex : removed call to scala/collection/immutable/$colon$colon::next$access$1 &rarr; KILLED<br/>
+5. minIndex : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+6. minIndex : equal to greater than &rarr; KILLED<br/>
+7. minIndex : equal to greater or equal &rarr; KILLED<br/>
+8. minIndex : equal to not equal &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    case a :: as =&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_90'/>
+90
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_90'>24</a>
+<span>
+1. minIndex : removed conditional - replaced comparison check with false &rarr; SURVIVED<br/>
+2. minIndex : Substituted 1 with 0 &rarr; KILLED<br/>
+3. minIndex : Replaced integer addition with subtraction &rarr; KILLED<br/>
+4. minIndex : negated conditional &rarr; KILLED<br/>
+5. minIndex : removed conditional - replaced comparison check with true &rarr; KILLED<br/>
+6. minIndex : Negated integer local variable number 9 &rarr; KILLED<br/>
+7. minIndex : Negated integer local variable number 3 &rarr; KILLED<br/>
+8. minIndex : Negated integer local variable number 4 &rarr; KILLED<br/>
+9. minIndex : Negated integer local variable number 9 &rarr; KILLED<br/>
+10. minIndex : Negated integer local variable number 4 &rarr; KILLED<br/>
+11. minIndex : Replaced integer operation with first member &rarr; KILLED<br/>
+12. minIndex : Replaced integer operation by second member &rarr; KILLED<br/>
+13. minIndex : Replaced integer addition with subtraction &rarr; KILLED<br/>
+14. minIndex : Replaced integer addition with multiplication &rarr; KILLED<br/>
+15. minIndex : Replaced integer addition with division &rarr; KILLED<br/>
+16. minIndex : Replaced integer addition with modulus &rarr; KILLED<br/>
+17. minIndex : Substituted 1 with 0 &rarr; KILLED<br/>
+18. minIndex : Substituted 1 with -1 &rarr; KILLED<br/>
+19. minIndex : Substituted 1 with -1 &rarr; KILLED<br/>
+20. minIndex : Substituted 1 with 2 &rarr; KILLED<br/>
+21. minIndex : Substituted 1 with 0 &rarr; KILLED<br/>
+22. minIndex : greater or equal to greater than &rarr; KILLED<br/>
+23. minIndex : greater or equal to equal &rarr; KILLED<br/>
+24. minIndex : greater or equal to not equal &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>      if (a &#60; minimalValue) minIndex(as, currentIndex, a, currentIndex + 1)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_91'/>
+91
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_91'>16</a>
+<span>
+1. minIndex : Substituted 1 with 0 &rarr; KILLED<br/>
+2. minIndex : Replaced integer addition with subtraction &rarr; KILLED<br/>
+3. minIndex : Negated integer local variable number 2 &rarr; KILLED<br/>
+4. minIndex : Negated integer local variable number 3 &rarr; KILLED<br/>
+5. minIndex : Negated integer local variable number 4 &rarr; KILLED<br/>
+6. minIndex : Replaced integer operation with first member &rarr; KILLED<br/>
+7. minIndex : Replaced integer operation by second member &rarr; KILLED<br/>
+8. minIndex : Replaced integer addition with subtraction &rarr; KILLED<br/>
+9. minIndex : Replaced integer addition with multiplication &rarr; KILLED<br/>
+10. minIndex : Replaced integer addition with division &rarr; KILLED<br/>
+11. minIndex : Replaced integer addition with modulus &rarr; KILLED<br/>
+12. minIndex : Substituted 1 with 0 &rarr; KILLED<br/>
+13. minIndex : Substituted 1 with -1 &rarr; KILLED<br/>
+14. minIndex : Substituted 1 with -1 &rarr; KILLED<br/>
+15. minIndex : Substituted 1 with 2 &rarr; KILLED<br/>
+16. minIndex : Substituted 1 with 0 &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      else minIndex(as, minimalIndex, minimalValue, currentIndex + 1)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_92'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_93'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_94'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  // -------------------------------------------------------------------------------------------------------------------</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_95'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  // Symmetric Difference</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_96'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_97'/>
+97
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_97'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_98'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * Get a set of elements that are in one of the two sets, but not in both</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_99'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_100'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * @param xs first set (as List)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_101'/>
+101
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_101'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * @param ys second set (as List)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_102'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * @return the symmetric difference of xs and ys (as List)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_103'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_104'/>
+104
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_104'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  def symmetricDifference(xs: List[Int], ys: List[Int]): List[Int] =</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_105'/>
+105
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_105'>7</a>
+<span>
+1. symmetricDifference : replaced call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::symmetricDifference with argument &rarr; SURVIVED<br/>
+2. symmetricDifference : replaced call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::symmetricDifference with argument &rarr; SURVIVED<br/>
+3. symmetricDifference : removed call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::symmetricDifference &rarr; KILLED<br/>
+4. symmetricDifference : removed call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::symmetricDifference &rarr; KILLED<br/>
+5. symmetricDifference : removed call to scala/collection/immutable/List::$plus$plus &rarr; KILLED<br/>
+6. symmetricDifference : removed call to scala/collection/SeqOps::distinct &rarr; KILLED<br/>
+7. symmetricDifference : replaced return value with null for at/tugraz/ist/qs2021/simple/SimpleFunctions$::symmetricDifference &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    (symmetricDifference(xs, ys, Nil) ++ symmetricDifference(ys, xs, Nil)).distinct</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_106'/>
+106
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_106'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_107'/>
+107
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_107'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_108'/>
+108
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_108'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_109'/>
+109
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_109'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * Tail recursive helper function for symmetric difference.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_110'/>
+110
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_110'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * Adds elements of addList to the result, that are not in checkList</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_111'/>
+111
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_111'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_112'/>
+112
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_112'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * @param addList   list of elements to add to result</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_113'/>
+113
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_113'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * @param checkList list of elements to compare</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_114'/>
+114
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_114'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * @param result    intermediate result</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_115'/>
+115
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_115'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * @return addList without checklist</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_116'/>
+116
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_116'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_117'/>
+117
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_117'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  @scala.annotation.tailrec</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_118'/>
+118
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_118'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  private def symmetricDifference(addList: List[Int], checkList: List[Int], result: List[Int]): List[Int] =</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_119'/>
+119
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_119'>2</a>
+<span>
+1. symmetricDifference : removed call to scala/MatchError::&#60;init&#62; &rarr; NO_COVERAGE<br/>
+2. symmetricDifference : replaced return value with null for at/tugraz/ist/qs2021/simple/SimpleFunctions$::symmetricDifference &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    addList match {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_120'/>
+120
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_120'>8</a>
+<span>
+1. symmetricDifference : negated conditional &rarr; SURVIVED<br/>
+2. symmetricDifference : replaced call to scala/collection/immutable/List::reverse with receiver &rarr; SURVIVED<br/>
+3. symmetricDifference : equal to greater than &rarr; SURVIVED<br/>
+4. symmetricDifference : equal to not equal &rarr; SURVIVED<br/>
+5. symmetricDifference : removed call to java/lang/Object::equals &rarr; KILLED<br/>
+6. symmetricDifference : removed call to scala/collection/immutable/List::reverse &rarr; KILLED<br/>
+7. symmetricDifference : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+8. symmetricDifference : equal to greater or equal &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>      case Nil =&#62; result.reverse</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_121'/>
+121
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_121'>8</a>
+<span>
+1. symmetricDifference : removed call to scala/collection/immutable/$colon$colon::head &rarr; SURVIVED<br/>
+2. symmetricDifference : removed call to scala/runtime/BoxesRunTime::unboxToInt &rarr; SURVIVED<br/>
+3. symmetricDifference : negated conditional &rarr; KILLED<br/>
+4. symmetricDifference : removed call to scala/collection/immutable/$colon$colon::next$access$1 &rarr; KILLED<br/>
+5. symmetricDifference : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+6. symmetricDifference : equal to greater than &rarr; KILLED<br/>
+7. symmetricDifference : equal to greater or equal &rarr; KILLED<br/>
+8. symmetricDifference : equal to not equal &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>      case a :: as =&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_122'/>
+122
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_122'>8</a>
+<span>
+1. symmetricDifference : negated conditional &rarr; SURVIVED<br/>
+2. symmetricDifference : removed call to scala/runtime/BoxesRunTime::boxToInteger &rarr; SURVIVED<br/>
+3. symmetricDifference : removed call to scala/collection/immutable/List::contains &rarr; SURVIVED<br/>
+4. symmetricDifference : removed conditional - replaced equality check with false &rarr; SURVIVED<br/>
+5. symmetricDifference : Negated integer local variable number 8 &rarr; SURVIVED<br/>
+6. symmetricDifference : equal to greater than &rarr; SURVIVED<br/>
+7. symmetricDifference : equal to greater or equal &rarr; SURVIVED<br/>
+8. symmetricDifference : equal to not equal &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (checkList.contains(a)) symmetricDifference(as, checkList, result)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_123'/>
+123
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_123'>5</a>
+<span>
+1. symmetricDifference : removed call to scala/runtime/BoxesRunTime::boxToInteger &rarr; SURVIVED<br/>
+2. symmetricDifference : replaced call to scala/collection/immutable/List::$colon$colon with receiver &rarr; SURVIVED<br/>
+3. symmetricDifference : Negated integer local variable number 8 &rarr; SURVIVED<br/>
+4. symmetricDifference : Negated integer local variable number 10 &rarr; SURVIVED<br/>
+5. symmetricDifference : removed call to scala/collection/immutable/List::$colon$colon &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        else symmetricDifference(as, checkList, a :: result)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_124'/>
+124
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_124'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_125'/>
+125
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_125'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_126'/>
+126
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_126'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  // -------------------------------------------------------------------------------------------------------------------</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_127'/>
+127
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_127'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  // Intersection</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_128'/>
+128
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_128'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_129'/>
+129
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_129'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_130'/>
+130
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_130'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * Get a set of elements that are in both sets</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_131'/>
+131
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_131'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_132'/>
+132
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_132'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * @param xs first set (as List)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_133'/>
+133
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_133'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * @param ys second set (as List)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_134'/>
+134
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_134'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * @return intersection of xs and ys</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_135'/>
+135
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_135'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_136'/>
+136
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_136'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  def intersection(xs: List[Int], ys: List[Int]): List[Int] =</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_137'/>
+137
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_137'>4</a>
+<span>
+1. intersection : replaced call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::intersection with argument &rarr; SURVIVED<br/>
+2. intersection : removed call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::intersection &rarr; KILLED<br/>
+3. intersection : removed call to scala/collection/immutable/List::distinct &rarr; KILLED<br/>
+4. intersection : replaced return value with null for at/tugraz/ist/qs2021/simple/SimpleFunctions$::intersection &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    intersection(xs, ys, Nil).distinct</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_138'/>
+138
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_138'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_139'/>
+139
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_139'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_140'/>
+140
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_140'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * Tail recursive helper function for intersection.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_141'/>
+141
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_141'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * Adds elements of addList to the result, that are in checkList</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_142'/>
+142
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_142'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_143'/>
+143
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_143'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * @param addList   list of elements to add to result</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_144'/>
+144
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_144'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * @param checkList list of elements to compare</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_145'/>
+145
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_145'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * @param result    intermediate result</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_146'/>
+146
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_146'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * @return addList intersected with checklist</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_147'/>
+147
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_147'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_148'/>
+148
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_148'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  @scala.annotation.tailrec</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_149'/>
+149
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_149'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  private def intersection(addList: List[Int], checkList: List[Int], result: List[Int]): List[Int] =</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_150'/>
+150
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_150'>2</a>
+<span>
+1. intersection : removed call to scala/MatchError::&#60;init&#62; &rarr; NO_COVERAGE<br/>
+2. intersection : replaced return value with null for at/tugraz/ist/qs2021/simple/SimpleFunctions$::intersection &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    addList match {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_151'/>
+151
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_151'>6</a>
+<span>
+1. intersection : negated conditional &rarr; SURVIVED<br/>
+2. intersection : equal to greater than &rarr; SURVIVED<br/>
+3. intersection : equal to not equal &rarr; SURVIVED<br/>
+4. intersection : removed call to java/lang/Object::equals &rarr; KILLED<br/>
+5. intersection : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+6. intersection : equal to greater or equal &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>      case Nil =&#62; result</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_152'/>
+152
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_152'>8</a>
+<span>
+1. intersection : removed call to scala/collection/immutable/$colon$colon::head &rarr; SURVIVED<br/>
+2. intersection : removed call to scala/runtime/BoxesRunTime::unboxToInt &rarr; SURVIVED<br/>
+3. intersection : negated conditional &rarr; KILLED<br/>
+4. intersection : removed call to scala/collection/immutable/$colon$colon::next$access$1 &rarr; KILLED<br/>
+5. intersection : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+6. intersection : equal to greater than &rarr; KILLED<br/>
+7. intersection : equal to greater or equal &rarr; KILLED<br/>
+8. intersection : equal to not equal &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>      case a :: as =&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_153'/>
+153
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_153'>13</a>
+<span>
+1. intersection : negated conditional &rarr; SURVIVED<br/>
+2. intersection : removed call to scala/runtime/BoxesRunTime::boxToInteger &rarr; SURVIVED<br/>
+3. intersection : removed call to scala/collection/immutable/List::contains &rarr; SURVIVED<br/>
+4. intersection : removed call to scala/runtime/BoxesRunTime::boxToInteger &rarr; SURVIVED<br/>
+5. intersection : removed conditional - replaced equality check with false &rarr; SURVIVED<br/>
+6. intersection : replaced call to scala/collection/immutable/List::$colon$colon with receiver &rarr; SURVIVED<br/>
+7. intersection : Negated integer local variable number 8 &rarr; SURVIVED<br/>
+8. intersection : Negated integer local variable number 8 &rarr; SURVIVED<br/>
+9. intersection : Negated integer local variable number 10 &rarr; SURVIVED<br/>
+10. intersection : equal to greater than &rarr; SURVIVED<br/>
+11. intersection : equal to greater or equal &rarr; SURVIVED<br/>
+12. intersection : equal to not equal &rarr; SURVIVED<br/>
+13. intersection : removed call to scala/collection/immutable/List::$colon$colon &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (checkList.contains(a)) intersection(as, checkList, a :: result)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_154'/>
+154
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_154'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        else intersection(as, checkList, result)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_155'/>
+155
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_155'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_156'/>
+156
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_156'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_157'/>
+157
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_157'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_158'/>
+158
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_158'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  // -------------------------------------------------------------------------------------------------------------------</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_159'/>
+159
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_159'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  // Smallest missing positive integer</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_160'/>
+160
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_160'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_161'/>
+161
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_161'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_162'/>
+162
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_162'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * Gives the smallest integer &#62; 0 that is not in the given list.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_163'/>
+163
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_163'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_164'/>
+164
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_164'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * @param xs the list to check</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_165'/>
+165
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_165'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * @return smallest missing positive integer</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_166'/>
+166
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_166'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_167'/>
+167
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_167'>7</a>
+<span>
+1. smallestMissingPositiveInteger : removed call to java/lang/Object::&#60;init&#62; &rarr; SURVIVED<br/>
+2. smallestMissingPositiveInteger : removed call to scala/runtime/NonLocalReturnControl::value$mcI$sp &rarr; SURVIVED<br/>
+3. smallestMissingPositiveInteger : replaced int return with 0 for at/tugraz/ist/qs2021/simple/SimpleFunctions$::smallestMissingPositiveInteger &rarr; SURVIVED<br/>
+4. smallestMissingPositiveInteger : negated conditional &rarr; KILLED<br/>
+5. smallestMissingPositiveInteger : removed call to scala/runtime/NonLocalReturnControl::key &rarr; KILLED<br/>
+6. smallestMissingPositiveInteger : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+7. smallestMissingPositiveInteger : not equal to equal &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>  def smallestMissingPositiveInteger(xs: List[Int]): Int = {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_168'/>
+168
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_168'>2</a>
+<span>
+1. smallestMissingPositiveInteger : removed call to scala/reflect/ClassTag$::Int &rarr; KILLED<br/>
+2. smallestMissingPositiveInteger : removed call to scala/collection/immutable/List::toArray &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    val arrayCopy: Array[Int] = xs.toArray</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_169'/>
+169
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_169'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_170'/>
+170
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_170'>6</a>
+<span>
+1. smallestMissingPositiveInteger : Substituted 0 with 1 &rarr; SURVIVED<br/>
+2. smallestMissingPositiveInteger : Substituted 0 with 1 &rarr; SURVIVED<br/>
+3. smallestMissingPositiveInteger : Substituted 0 with -1 &rarr; SURVIVED<br/>
+4. smallestMissingPositiveInteger : Substituted 0 with 1 &rarr; SURVIVED<br/>
+5. smallestMissingPositiveInteger : Substituted 0 with -1 &rarr; SURVIVED<br/>
+6. smallestMissingPositiveInteger : removed call to scala/runtime/IntRef::create &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    var j: Int = 0</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_171'/>
+171
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_171'>3</a>
+<span>
+1. smallestMissingPositiveInteger : removed call to scala/collection/immutable/Range::foreach$mVc$sp &rarr; SURVIVED<br/>
+2. smallestMissingPositiveInteger : removed call to scala/Predef$::intArrayOps &rarr; KILLED<br/>
+3. smallestMissingPositiveInteger : removed call to scala/collection/ArrayOps$::indices$extension &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    for (i &#60;- arrayCopy.indices) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_172'/>
+172
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_172'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      if (arrayCopy(i) &#60;= 0) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_173'/>
+173
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_173'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        val temp = arrayCopy(i)</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_174'/>
+174
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_174'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        arrayCopy(i) = arrayCopy(j)</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_175'/>
+175
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_175'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        arrayCopy(j) = temp</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_176'/>
+176
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_176'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        j += 1</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_177'/>
+177
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_177'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_178'/>
+178
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_178'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_179'/>
+179
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_179'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_180'/>
+180
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_180'>4</a>
+<span>
+1. smallestMissingPositiveInteger : replaced call to scala/collection/ArrayOps$::slice$extension with argument &rarr; SURVIVED<br/>
+2. smallestMissingPositiveInteger : Negated integer field elem &rarr; SURVIVED<br/>
+3. smallestMissingPositiveInteger : removed call to scala/Predef$::intArrayOps &rarr; KILLED<br/>
+4. smallestMissingPositiveInteger : removed call to scala/collection/ArrayOps$::slice$extension &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    val array2 = arrayCopy.slice(j, arrayCopy.length)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_181'/>
+181
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_181'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_182'/>
+182
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_182'>3</a>
+<span>
+1. smallestMissingPositiveInteger : removed call to scala/collection/immutable/Range::foreach$mVc$sp &rarr; SURVIVED<br/>
+2. smallestMissingPositiveInteger : removed call to scala/Predef$::intArrayOps &rarr; KILLED<br/>
+3. smallestMissingPositiveInteger : removed call to scala/collection/ArrayOps$::indices$extension &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    for (i &#60;- array2.indices) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_183'/>
+183
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_183'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      j = math.abs(array2(i)) - 1</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_184'/>
+184
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_184'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      if (j &#60; array2.length &#38;&#38; array2(j) &#62; 0) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_185'/>
+185
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_185'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        array2(j) = -array2(j)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_186'/>
+186
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_186'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_187'/>
+187
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_187'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_188'/>
+188
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_188'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_189'/>
+189
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_189'>3</a>
+<span>
+1. smallestMissingPositiveInteger : removed call to scala/collection/immutable/Range::foreach$mVc$sp &rarr; SURVIVED<br/>
+2. smallestMissingPositiveInteger : removed call to scala/Predef$::intArrayOps &rarr; KILLED<br/>
+3. smallestMissingPositiveInteger : removed call to scala/collection/ArrayOps$::indices$extension &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    for (i &#60;- array2.indices) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_190'/>
+190
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_190'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      if (array2(i) &#62; 0) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_191'/>
+191
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_191'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        return i + 1</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_192'/>
+192
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_192'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_193'/>
+193
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_193'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_194'/>
+194
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_194'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_195'/>
+195
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_195'>13</a>
+<span>
+1. smallestMissingPositiveInteger : Substituted 1 with 0 &rarr; SURVIVED<br/>
+2. smallestMissingPositiveInteger : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+3. smallestMissingPositiveInteger : Replaced integer operation with first member &rarr; SURVIVED<br/>
+4. smallestMissingPositiveInteger : Replaced integer operation by second member &rarr; SURVIVED<br/>
+5. smallestMissingPositiveInteger : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+6. smallestMissingPositiveInteger : Replaced integer addition with multiplication &rarr; SURVIVED<br/>
+7. smallestMissingPositiveInteger : Replaced integer addition with division &rarr; SURVIVED<br/>
+8. smallestMissingPositiveInteger : Replaced integer addition with modulus &rarr; SURVIVED<br/>
+9. smallestMissingPositiveInteger : Substituted 1 with 0 &rarr; SURVIVED<br/>
+10. smallestMissingPositiveInteger : Substituted 1 with -1 &rarr; SURVIVED<br/>
+11. smallestMissingPositiveInteger : Substituted 1 with -1 &rarr; SURVIVED<br/>
+12. smallestMissingPositiveInteger : Substituted 1 with 2 &rarr; SURVIVED<br/>
+13. smallestMissingPositiveInteger : Substituted 1 with 0 &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    array2.length + 1</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_196'/>
+196
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_196'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_197'/>
+197
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_197'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4763c727_198'/>
+198
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_198'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_0'>0</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_0'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>insertionSort<br/><b>Killed by : </b>none</span></span> replaced call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::insertionSort with argument &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>insertionSort<br/><b>Killed by : </b>none</span></span> removed call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::insertionSort &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>insertionSort<br/><b>Killed by : </b>none</span></span> replaced return value with null for at/tugraz/ist/qs2021/simple/SimpleFunctions::insertionSort &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>none</span></span> replaced call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::intersection with argument &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>none</span></span> removed call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::intersection &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>none</span></span> replaced return value with null for at/tugraz/ist/qs2021/simple/SimpleFunctions::intersection &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>max<br/><b>Killed by : </b>none</span></span> removed call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::max &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>max<br/><b>Killed by : </b>none</span></span> replaced int return with 0 for at/tugraz/ist/qs2021/simple/SimpleFunctions::max &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>none</span></span> removed call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::minIndex &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>none</span></span> replaced int return with 0 for at/tugraz/ist/qs2021/simple/SimpleFunctions::minIndex &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>none</span></span> removed call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::smallestMissingPositiveInteger &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>none</span></span> replaced int return with 0 for at/tugraz/ist/qs2021/simple/SimpleFunctions::smallestMissingPositiveInteger &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>13.<span><b>13</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>none</span></span> replaced call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::symmetricDifference with argument &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>14.<span><b>14</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>none</span></span> removed call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::symmetricDifference &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>15.<span><b>15</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>none</span></span> replaced return value with null for at/tugraz/ist/qs2021/simple/SimpleFunctions::symmetricDifference &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_14'>14</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_14'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>insertionSort<br/><b>Killed by : </b>none</span></span> removed call to scala/MatchError::&#60;init&#62; &rarr; NO_COVERAGE</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>insertionSort<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> replaced return value with null for at/tugraz/ist/qs2021/simple/SimpleFunctions$::insertionSort &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_15'>15</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_15'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>insertionSort<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>insertionSort<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to java/lang/Object::equals &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>insertionSort<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>insertionSort<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> equal to greater than &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>insertionSort<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> equal to greater or equal &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>insertionSort<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> equal to not equal &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_16'>16</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_16'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>insertionSort<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> replaced call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::insertionSort with argument &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>insertionSort<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> replaced call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::insert with argument &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>insertionSort<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>insertionSort<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/collection/immutable/$colon$colon::head &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>insertionSort<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/runtime/BoxesRunTime::unboxToInt &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>insertionSort<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/collection/immutable/$colon$colon::next$access$1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>insertionSort<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::insertionSort &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>insertionSort<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::insert &rarr; KILLED</p> <p class='KILLED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>insertionSort<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>insertionSort<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Negated integer local variable number 5 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>insertionSort<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> equal to greater than &rarr; KILLED</p> <p class='KILLED'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>insertionSort<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> equal to greater or equal &rarr; KILLED</p> <p class='KILLED'><span class='pop'>13.<span><b>13</b><br/><b>Location : </b>insertionSort<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> equal to not equal &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_28'>28</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_28'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>none</span></span> removed call to scala/MatchError::&#60;init&#62; &rarr; NO_COVERAGE</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> replaced return value with null for at/tugraz/ist/qs2021/simple/SimpleFunctions$::insert &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_29'>29</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_29'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Substituted 0 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to java/lang/Object::equals &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/runtime/ScalaRunTime$::wrapIntArray &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/collection/immutable/List$::apply &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Negated integer local variable number 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Substituted 0 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Substituted 1 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Substituted 0 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>13.<span><b>13</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Substituted 1 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>14.<span><b>14</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Substituted 1 with 2 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>15.<span><b>15</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Substituted 0 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>16.<span><b>16</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>17.<span><b>17</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Substituted 0 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>18.<span><b>18</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> equal to greater than &rarr; KILLED</p> <p class='KILLED'><span class='pop'>19.<span><b>19</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> equal to greater or equal &rarr; KILLED</p> <p class='KILLED'><span class='pop'>20.<span><b>20</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> equal to not equal &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_30'>30</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_30'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/collection/immutable/$colon$colon::head &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/runtime/BoxesRunTime::unboxToInt &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/collection/immutable/$colon$colon::next$access$1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> equal to greater than &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> equal to greater or equal &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> equal to not equal &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_31'>31</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_31'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/runtime/BoxesRunTime::boxToInteger &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/collection/immutable/List::$colon$colon &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed conditional - replaced comparison check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed conditional - replaced comparison check with true &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> replaced call to scala/collection/immutable/List::$colon$colon with receiver &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Negated integer local variable number 6 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Negated integer local variable number 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Negated integer local variable number 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Negated integer local variable number 8 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Less than to greater or equal &rarr; KILLED</p> <p class='KILLED'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Less than to equal &rarr; KILLED</p> <p class='KILLED'><span class='pop'>13.<span><b>13</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Less than to not equal &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_32'>32</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_32'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> replaced call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::insert with argument &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::insert &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/runtime/BoxesRunTime::boxToInteger &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/collection/immutable/List::$colon$colon &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> replaced call to scala/collection/immutable/List::$colon$colon with receiver &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Negated integer local variable number 6 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Negated integer local variable number 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>insert<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Negated integer local variable number 9 &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_44'>44</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_44'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>max<br/><b>Killed by : </b>none</span></span> removed call to scala/MatchError::&#60;init&#62; &rarr; NO_COVERAGE</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> replaced int return with 0 for at/tugraz/ist/qs2021/simple/SimpleFunctions$::max &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Negated integer local variable number 2 &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_45'>45</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_45'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> replaced call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::max with argument &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/collection/immutable/$colon$colon::head &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/runtime/BoxesRunTime::unboxToInt &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/collection/immutable/$colon$colon::next$access$1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::max &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Negated integer local variable number 5 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> equal to greater than &rarr; KILLED</p> <p class='KILLED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> equal to greater or equal &rarr; KILLED</p> <p class='KILLED'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> equal to not equal &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_57'>57</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_57'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>max<br/><b>Killed by : </b>none</span></span> removed call to scala/MatchError::&#60;init&#62; &rarr; NO_COVERAGE</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> replaced int return with 0 for at/tugraz/ist/qs2021/simple/SimpleFunctions$::max &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Negated integer local variable number 4 &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_58'>58</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_58'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to java/lang/Object::equals &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Negated integer local variable number 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> equal to greater than &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> equal to greater or equal &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> equal to not equal &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_59'>59</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_59'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/collection/immutable/$colon$colon::head &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/runtime/BoxesRunTime::unboxToInt &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/collection/immutable/$colon$colon::next$access$1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> equal to greater than &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> equal to greater or equal &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> equal to not equal &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_60'>60</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_60'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed conditional - replaced comparison check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed conditional - replaced comparison check with true &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Negated integer local variable number 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Negated integer local variable number 7 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Negated integer local variable number 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Less than to greater or equal &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Less than to equal &rarr; KILLED</p> <p class='KILLED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Less than to not equal &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_61'>61</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_61'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>max<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Negated integer local variable number 7 &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_73'>73</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_73'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>none</span></span> removed call to scala/MatchError::&#60;init&#62; &rarr; NO_COVERAGE</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>none</span></span> replaced int return with 0 for at/tugraz/ist/qs2021/simple/SimpleFunctions$::minIndex &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Negated integer local variable number 2 &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_74'>74</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_74'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> replaced call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::minIndex with argument &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Substituted 0 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/collection/immutable/$colon$colon::head &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/runtime/BoxesRunTime::unboxToInt &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/collection/immutable/$colon$colon::next$access$1 &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>none</span></span> removed call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::minIndex &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>none</span></span> Negated integer local variable number 5 &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Substituted 0 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>13.<span><b>13</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Substituted 0 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>14.<span><b>14</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Substituted 1 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>15.<span><b>15</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Substituted 1 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>16.<span><b>16</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Substituted 0 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>17.<span><b>17</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Substituted 1 with 2 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>18.<span><b>18</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Substituted 0 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>19.<span><b>19</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>20.<span><b>20</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> equal to greater than &rarr; KILLED</p> <p class='KILLED'><span class='pop'>21.<span><b>21</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> equal to greater or equal &rarr; KILLED</p> <p class='KILLED'><span class='pop'>22.<span><b>22</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> equal to not equal &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_87'>87</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_87'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>none</span></span> removed call to scala/MatchError::&#60;init&#62; &rarr; NO_COVERAGE</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>none</span></span> replaced int return with 0 for at/tugraz/ist/qs2021/simple/SimpleFunctions$::minIndex &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Negated integer local variable number 6 &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_88'>88</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_88'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to java/lang/Object::equals &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Negated integer local variable number 2 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> equal to greater than &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> equal to greater or equal &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> equal to not equal &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_89'>89</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_89'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/collection/immutable/$colon$colon::head &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/runtime/BoxesRunTime::unboxToInt &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/collection/immutable/$colon$colon::next$access$1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> equal to greater than &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> equal to greater or equal &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> equal to not equal &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_90'>90</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_90'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>none</span></span> removed conditional - replaced comparison check with false &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed conditional - replaced comparison check with true &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Negated integer local variable number 9 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Negated integer local variable number 3 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Negated integer local variable number 4 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Negated integer local variable number 9 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Negated integer local variable number 4 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Replaced integer operation with first member &rarr; KILLED</p> <p class='KILLED'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Replaced integer operation by second member &rarr; KILLED</p> <p class='KILLED'><span class='pop'>13.<span><b>13</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>14.<span><b>14</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Replaced integer addition with multiplication &rarr; KILLED</p> <p class='KILLED'><span class='pop'>15.<span><b>15</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Replaced integer addition with division &rarr; KILLED</p> <p class='KILLED'><span class='pop'>16.<span><b>16</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Replaced integer addition with modulus &rarr; KILLED</p> <p class='KILLED'><span class='pop'>17.<span><b>17</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>18.<span><b>18</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Substituted 1 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>19.<span><b>19</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Substituted 1 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>20.<span><b>20</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Substituted 1 with 2 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>21.<span><b>21</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>22.<span><b>22</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> greater or equal to greater than &rarr; KILLED</p> <p class='KILLED'><span class='pop'>23.<span><b>23</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> greater or equal to equal &rarr; KILLED</p> <p class='KILLED'><span class='pop'>24.<span><b>24</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> greater or equal to not equal &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_91'>91</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_91'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Negated integer local variable number 2 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Negated integer local variable number 3 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Negated integer local variable number 4 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Replaced integer operation with first member &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Replaced integer operation by second member &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Replaced integer addition with multiplication &rarr; KILLED</p> <p class='KILLED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Replaced integer addition with division &rarr; KILLED</p> <p class='KILLED'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Replaced integer addition with modulus &rarr; KILLED</p> <p class='KILLED'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>13.<span><b>13</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Substituted 1 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>14.<span><b>14</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Substituted 1 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>15.<span><b>15</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Substituted 1 with 2 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>16.<span><b>16</b><br/><b>Location : </b>minIndex<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> Substituted 1 with 0 &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_105'>105</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_105'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>none</span></span> replaced call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::symmetricDifference with argument &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>none</span></span> replaced call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::symmetricDifference with argument &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::symmetricDifference &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::symmetricDifference &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/collection/immutable/List::$plus$plus &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/collection/SeqOps::distinct &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> replaced return value with null for at/tugraz/ist/qs2021/simple/SimpleFunctions$::symmetricDifference &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_119'>119</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_119'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>none</span></span> removed call to scala/MatchError::&#60;init&#62; &rarr; NO_COVERAGE</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> replaced return value with null for at/tugraz/ist/qs2021/simple/SimpleFunctions$::symmetricDifference &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_120'>120</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_120'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to java/lang/Object::equals &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/collection/immutable/List::reverse &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>none</span></span> replaced call to scala/collection/immutable/List::reverse with receiver &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>none</span></span> equal to greater than &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> equal to greater or equal &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>none</span></span> equal to not equal &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_121'>121</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_121'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>none</span></span> removed call to scala/collection/immutable/$colon$colon::head &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>none</span></span> removed call to scala/runtime/BoxesRunTime::unboxToInt &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/collection/immutable/$colon$colon::next$access$1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> equal to greater than &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> equal to greater or equal &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> equal to not equal &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_122'>122</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_122'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>none</span></span> removed call to scala/runtime/BoxesRunTime::boxToInteger &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>none</span></span> removed call to scala/collection/immutable/List::contains &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with false &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>none</span></span> Negated integer local variable number 8 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>none</span></span> equal to greater than &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>none</span></span> equal to greater or equal &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>none</span></span> equal to not equal &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_123'>123</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_123'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>none</span></span> removed call to scala/runtime/BoxesRunTime::boxToInteger &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/collection/immutable/List::$colon$colon &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>none</span></span> replaced call to scala/collection/immutable/List::$colon$colon with receiver &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>none</span></span> Negated integer local variable number 8 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>symmetricDifference<br/><b>Killed by : </b>none</span></span> Negated integer local variable number 10 &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_137'>137</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_137'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>none</span></span> replaced call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::intersection with argument &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to at/tugraz/ist/qs2021/simple/SimpleFunctions$::intersection &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/collection/immutable/List::distinct &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> replaced return value with null for at/tugraz/ist/qs2021/simple/SimpleFunctions$::intersection &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_150'>150</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_150'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>none</span></span> removed call to scala/MatchError::&#60;init&#62; &rarr; NO_COVERAGE</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> replaced return value with null for at/tugraz/ist/qs2021/simple/SimpleFunctions$::intersection &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_151'>151</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_151'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to java/lang/Object::equals &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>none</span></span> equal to greater than &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> equal to greater or equal &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>none</span></span> equal to not equal &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_152'>152</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_152'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>none</span></span> removed call to scala/collection/immutable/$colon$colon::head &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>none</span></span> removed call to scala/runtime/BoxesRunTime::unboxToInt &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/collection/immutable/$colon$colon::next$access$1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> equal to greater than &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> equal to greater or equal &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> equal to not equal &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_153'>153</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_153'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>none</span></span> removed call to scala/runtime/BoxesRunTime::boxToInteger &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>none</span></span> removed call to scala/collection/immutable/List::contains &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>none</span></span> removed call to scala/runtime/BoxesRunTime::boxToInteger &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/collection/immutable/List::$colon$colon &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with false &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>none</span></span> replaced call to scala/collection/immutable/List::$colon$colon with receiver &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>none</span></span> Negated integer local variable number 8 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>none</span></span> Negated integer local variable number 8 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>none</span></span> Negated integer local variable number 10 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>none</span></span> equal to greater than &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>none</span></span> equal to greater or equal &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>13.<span><b>13</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>none</span></span> equal to not equal &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_167'>167</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_167'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>none</span></span> removed call to java/lang/Object::&#60;init&#62; &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/runtime/NonLocalReturnControl::key &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>none</span></span> removed call to scala/runtime/NonLocalReturnControl::value$mcI$sp &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>none</span></span> replaced int return with 0 for at/tugraz/ist/qs2021/simple/SimpleFunctions$::smallestMissingPositiveInteger &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> not equal to equal &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_168'>168</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_168'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/reflect/ClassTag$::Int &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/collection/immutable/List::toArray &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_170'>170</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_170'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>none</span></span> Substituted 0 with 1 &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/runtime/IntRef::create &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>none</span></span> Substituted 0 with 1 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>none</span></span> Substituted 0 with -1 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>none</span></span> Substituted 0 with 1 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>none</span></span> Substituted 0 with -1 &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_171'>171</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_171'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/Predef$::intArrayOps &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/collection/ArrayOps$::indices$extension &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>none</span></span> removed call to scala/collection/immutable/Range::foreach$mVc$sp &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_180'>180</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_180'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>none</span></span> replaced call to scala/collection/ArrayOps$::slice$extension with argument &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/Predef$::intArrayOps &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/collection/ArrayOps$::slice$extension &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>none</span></span> Negated integer field elem &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_182'>182</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_182'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/Predef$::intArrayOps &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/collection/ArrayOps$::indices$extension &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>none</span></span> removed call to scala/collection/immutable/Range::foreach$mVc$sp &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_189'>189</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_189'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/Predef$::intArrayOps &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>at.tugraz.ist.qs2021.SimpleFunctionsTest</span></span> removed call to scala/collection/ArrayOps$::indices$extension &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>none</span></span> removed call to scala/collection/immutable/Range::foreach$mVc$sp &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4763c727_195'>195</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4763c727_195'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>none</span></span> Substituted 1 with 0 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>none</span></span> Replaced integer addition with subtraction &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>none</span></span> Replaced integer operation with first member &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>none</span></span> Replaced integer operation by second member &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>none</span></span> Replaced integer addition with subtraction &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>none</span></span> Replaced integer addition with multiplication &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>none</span></span> Replaced integer addition with division &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>none</span></span> Replaced integer addition with modulus &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>none</span></span> Substituted 1 with 0 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>none</span></span> Substituted 1 with -1 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>none</span></span> Substituted 1 with -1 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>none</span></span> Substituted 1 with 2 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>13.<span><b>13</b><br/><b>Location : </b>smallestMissingPositiveInteger<br/><b>Killed by : </b>none</span></span> Substituted 1 with 0 &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>ABS_MUTATOR</li>
+<li class='mutator'>AOD_1_MUTATOR</li>
+<li class='mutator'>AOD_2_MUTATOR</li>
+<li class='mutator'>AOR_1_MUTATOR</li>
+<li class='mutator'>AOR_2_MUTATOR</li>
+<li class='mutator'>AOR_3_MUTATOR</li>
+<li class='mutator'>AOR_4_MUTATOR</li>
+<li class='mutator'>ARGUMENT_PROPAGATION_MUTATOR</li>
+<li class='mutator'>BOOLEAN_FALSE_RETURN</li>
+<li class='mutator'>BOOLEAN_TRUE_RETURN</li>
+<li class='mutator'>CONSTRUCTOR_CALL_MUTATOR</li>
+<li class='mutator'>CRCR_1_MUTATOR</li>
+<li class='mutator'>CRCR_2_MUTATOR</li>
+<li class='mutator'>CRCR_3_MUTATOR</li>
+<li class='mutator'>CRCR_4_MUTATOR</li>
+<li class='mutator'>CRCR_5_MUTATOR</li>
+<li class='mutator'>CRCR_6_MUTATOR</li>
+<li class='mutator'>EMPTY_RETURN_VALUES</li>
+<li class='mutator'>EXPERIMENTAL_BIGINTEGER_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_MEMBER_VARIABLE_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_[0-99]</li>
+<li class='mutator'>EXPERIMENTAL_SWITCH_MUTATOR</li>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>INLINE_CONSTANT_MUTATOR</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NAKED_RECEIVER</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+<li class='mutator'>NON_VOID_METHOD_CALL_MUTATOR</li>
+<li class='mutator'>NULL_RETURN_VALUES</li>
+<li class='mutator'>OBBN_1_MUTATOR</li>
+<li class='mutator'>OBBN_2_MUTATOR</li>
+<li class='mutator'>OBBN_3_MUTATOR</li>
+<li class='mutator'>PRIMITIVE_RETURN_VALS_MUTATOR</li>
+<li class='mutator'>REMOVE_CONDITIONALS_EQUAL_ELSE_MUTATOR</li>
+<li class='mutator'>REMOVE_CONDITIONALS_ORDER_ELSE_MUTATOR</li>
+<li class='mutator'>REMOVE_CONDITIONALS_ORDER_IF_MUTATOR</li>
+<li class='mutator'>REMOVE_INCREMENTS_MUTATOR</li>
+<li class='mutator'>ROR_3_MUTATOR</li>
+<li class='mutator'>ROR_4_MUTATOR</li>
+<li class='mutator'>ROR_5_MUTATOR</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>at.tugraz.ist.qs2021.SimpleFunctionsTest (535 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.5.1
+
+</body>
+</html>

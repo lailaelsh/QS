@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="at.tugraz.ist.qs2021.SimpleFunctionsTest" tests="0" skipped="0" failures="0" errors="0" timestamp="1970-01-01T00:00:00" hostname="Lailas-MacBook-Pro.local" time="0.0">
+  <properties/>
+  <system-out><![CDATA[Running property: SimpleFunctionsTest.insertionSort Java: orderedRunning property: SimpleFunctionsTest.insertionSort: orderedRunning property: SimpleFunctionsTest.insertionSort: permutationRunning property: SimpleFunctionsTest.maximumRunning property: SimpleFunctionsTest.minimal IndexRunning property: SimpleFunctionsTest.symmetricDifference: orderRunning property: SimpleFunctionsTest.symmetricDifference: permutationRunning property: SimpleFunctionsTest.intersection: orderRunning property: SimpleFunctionsTest.intersection: permutationRunning property: SimpleFunctionsTest.SMPI: orderRunning property: SimpleFunctionsTest.SMPI: permutation]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

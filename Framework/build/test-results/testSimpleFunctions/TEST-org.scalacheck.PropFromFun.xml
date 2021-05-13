@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.scalacheck.PropFromFun" tests="11" skipped="0" failures="0" errors="0" timestamp="2021-05-13T19:01:11" hostname="Lailas-MacBook-Pro.local" time="0.535">
+  <properties/>
+  <testcase name="SimpleFunctionsTest.insertionSort Java: ordered" classname="org.scalacheck.PropFromFun" time="0.117"/>
+  <testcase name="SimpleFunctionsTest.insertionSort: ordered" classname="org.scalacheck.PropFromFun" time="0.04"/>
+  <testcase name="SimpleFunctionsTest.insertionSort: permutation" classname="org.scalacheck.PropFromFun" time="0.038"/>
+  <testcase name="SimpleFunctionsTest.maximum" classname="org.scalacheck.PropFromFun" time="0.028"/>
+  <testcase name="SimpleFunctionsTest.minimal Index" classname="org.scalacheck.PropFromFun" time="0.024"/>
+  <testcase name="SimpleFunctionsTest.symmetricDifference: order" classname="org.scalacheck.PropFromFun" time="0.078"/>
+  <testcase name="SimpleFunctionsTest.symmetricDifference: permutation" classname="org.scalacheck.PropFromFun" time="0.063"/>
+  <testcase name="SimpleFunctionsTest.intersection: order" classname="org.scalacheck.PropFromFun" time="0.036"/>
+  <testcase name="SimpleFunctionsTest.intersection: permutation" classname="org.scalacheck.PropFromFun" time="0.029"/>
+  <testcase name="SimpleFunctionsTest.SMPI: order" classname="org.scalacheck.PropFromFun" time="0.044"/>
+  <testcase name="SimpleFunctionsTest.SMPI: permutation" classname="org.scalacheck.PropFromFun" time="0.029"/>
+  <system-out><![CDATA[+ OK, passed 100 tests.
++ OK, passed 100 tests.
++ OK, passed 100 tests.
++ OK, passed 100 tests.
++ OK, passed 100 tests.
++ OK, passed 100 tests.
++ OK, passed 100 tests.
++ OK, passed 100 tests.
++ OK, passed 100 tests.
++ OK, passed 100 tests.
++ OK, passed 100 tests.
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
