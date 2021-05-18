@@ -44,12 +44,53 @@ object MessageBoardSpecification extends Commands {
     type Result = Message
 
     def run(sut: Sut): Result = {
-      // TODO
-      throw new java.lang.UnsupportedOperationException("Not implemented yet.")
+      sut.getDispatcher.tell(new InitCommunication(sut.getClient, sut.getCommId))
+      while (sut.getClient.receivedMessages.isEmpty)
+        sut.getSystem.runFor(1)
+      val initAck = sut.getClient.receivedMessages.remove.asInstanceOf[InitAck]
+      val worker: SimulatedActor = initAck.worker
+
+      worker.tell(new Publish(new UserMessage(author, message), sut.getCommId))
+      while (sut.getClient.receivedMessages.isEmpty)
+        sut.getSystem.runFor(1)
+      val result = sut.getClient.receivedMessages.remove()
+
+      worker.tell(new FinishCommunication(sut.getCommId))
+      while (sut.getClient.receivedMessages.isEmpty)
+        sut.getSystem.runFor(1)
+      sut.getClient.receivedMessages.remove()
+
+      result
     }
 
     def nextState(state: State): State = {
-      // TODO
+
+//      R1 A message may only be stored if its text contains less than or exactly MAX MESSAGE LENGTH
+//        (= 10) characters. This check is performed in the Worker class.
+
+      if (state.messages.exists(msg => msg.message.length > MAX_MESSAGE_LENGTH)) {
+        return state.copy(
+          lastCommandSuccessful = false,
+          userBanned = false
+        )
+      }
+
+      // R2 A message may only be saved if no identical message has been saved yet. Two messages are
+      //identical if both author and text of both messages are the same.
+
+      //TODO
+      if (state.messages.distinct.nonEmpty) {
+        return state.copy(
+          lastCommandSuccessful = false,
+          userBanned = false
+        )
+      }
+
+      state.copy(
+        lastCommandSuccessful = true,
+        userBanned = false,
+        messages = ModelUserMessage(author, message, List(), List()) :: state.messages
+      )
       state
     }
 
@@ -59,7 +100,7 @@ object MessageBoardSpecification extends Commands {
       if (result.isSuccess) {
         val reply: Message = result.get
         val newState: State = nextState(state)
-        false // TODO
+        (reply.isInstanceOf[UserBanned] == newState.userBanned) && (reply.isInstanceOf[OperationAck] == newState.lastCommandSuccessful)
       } else {
         false
       }
@@ -79,11 +120,71 @@ object MessageBoardSpecification extends Commands {
 
     def run(sut: Sut): Result = {
       // TODO
-      throw new java.lang.UnsupportedOperationException("Not implemented yet.")
+      sut.getDispatcher.tell(new InitCommunication(sut.getClient, sut.getCommId))
+      while (sut.getClient.receivedMessages.isEmpty)
+        sut.getSystem.runFor(1)
+      val initAck = sut.getClient.receivedMessages.remove.asInstanceOf[InitAck]
+      val worker: SimulatedActor = initAck.worker
+
+      //TODO puplish?
+      val msg = new UserMessage(author, message)
+      worker.tell(new Publish(new UserMessage(author, message), sut.getCommId))
+      while (sut.getClient.receivedMessages.isEmpty)
+        sut.getSystem.runFor(1)
+      sut.getClient.receivedMessages.remove()
+
+      worker.tell(new Like(likeName, sut.getCommId, msg.getMessageId))
+      while (sut.getClient.receivedMessages.isEmpty)
+        sut.getSystem.runFor(1)
+      val result = sut.getClient.receivedMessages.remove()
+
+      worker.tell(new FinishCommunication(sut.getCommId))
+      while (sut.getClient.receivedMessages.isEmpty)
+        sut.getSystem.runFor(1)
+      sut.getClient.receivedMessages.remove()
+
+      result
     }
 
     def nextState(state: State): State = {
-      // TODO
+      //  R3   A message may only be liked/disliked if it exists.
+
+      if (!state.messages.exists(msg => msg.message == message)) {
+        return state.copy(
+          lastCommandSuccessful = false,
+          userBanned = false
+        )
+      }
+
+      // R4 A message may only be liked/disliked by users who have not yet liked/disliked
+      // the corresponding message.
+
+      //TODO
+      if (state.messages.exists(msg => msg.message == message && msg.likes.contains(likeName))) {
+        return state.copy(
+          lastCommandSuccessful = false,
+          userBanned = false
+        )
+      }
+
+      if (state.reports.count(r => r.reportedClientName == likeName) >= USER_BLOCKED_AT_COUNT) {
+        return state.copy(
+          lastCommandSuccessful = false,
+          userBanned = true
+        )
+      }
+
+      state.copy(
+        lastCommandSuccessful = true,
+        userBanned = false,
+        messages = state.messages.updated(state.messages.indexOf(state.messages.find(msg => msg.message == message && msg.author == author).get
+        ), ModelUserMessage(author, message,likeName::state.messages(state.messages.indexOf(state.messages.find(msg => msg.message == message && msg.author == author).get
+        )).likes,state.messages(state.messages.indexOf(state.messages.find(msg => msg.message == message && msg.author == author).get
+        )).dislikes))
+        //TODO append like to like list
+//        likeName :: state.messages.find(msg => msg.message == message && msg.author == author).get.likes
+//
+      )
       state
     }
 
@@ -93,7 +194,7 @@ object MessageBoardSpecification extends Commands {
       if (result.isSuccess) {
         val reply: Message = result.get
         val newState: State = nextState(state)
-        false // TODO
+        (reply.isInstanceOf[UserBanned] == newState.userBanned) && (reply.isInstanceOf[OperationAck] == newState.lastCommandSuccessful)
       } else {
         false
       }
@@ -112,12 +213,60 @@ object MessageBoardSpecification extends Commands {
     type Result = Message
 
     def run(sut: Sut): Result = {
-      // TODO
-      throw new java.lang.UnsupportedOperationException("Not implemented yet.")
+      sut.getDispatcher.tell(new InitCommunication(sut.getClient, sut.getCommId))
+      while (sut.getClient.receivedMessages.isEmpty)
+        sut.getSystem.runFor(1)
+      val initAck = sut.getClient.receivedMessages.remove.asInstanceOf[InitAck]
+      val worker: SimulatedActor = initAck.worker
+
+      //TODO puplish?
+      val msg = new UserMessage(author, message)
+      worker.tell(new Dislike(dislikeName, sut.getCommId, msg.getMessageId))
+      while (sut.getClient.receivedMessages.isEmpty)
+        sut.getSystem.runFor(1)
+      val result = sut.getClient.receivedMessages.remove()
+
+      worker.tell(new FinishCommunication(sut.getCommId))
+      while (sut.getClient.receivedMessages.isEmpty)
+        sut.getSystem.runFor(1)
+      sut.getClient.receivedMessages.remove()
+
+      result
     }
 
     def nextState(state: State): State = {
-      // TODO
+      //  R3   A message may only be liked/disliked if it exists.
+
+      if (!state.messages.exists(msg => msg.message == message)) {
+        return state.copy(
+          lastCommandSuccessful = false,
+          userBanned = false
+        )
+      }
+
+      // R4 A message may only be liked/disliked by users who have not yet liked/disliked
+      // the corresponding message.
+
+      //TODO
+      if (state.messages.exists(msg => msg.message == message && msg.likes.contains(dislikeName))) {
+        return state.copy(
+          lastCommandSuccessful = false,
+          userBanned = false
+        )
+      }
+
+      if (state.reports.count(r => r.reportedClientName == dislikeName) >= USER_BLOCKED_AT_COUNT) {
+        return state.copy(
+          lastCommandSuccessful = false,
+          userBanned = true
+        )
+      }
+
+      state.copy(
+        lastCommandSuccessful = true,
+        userBanned = false,
+        messages = ModelUserMessage(author, message, List(), List(dislikeName)) :: state.messages
+      )
       state
     }
 
@@ -127,7 +276,7 @@ object MessageBoardSpecification extends Commands {
       if (result.isSuccess) {
         val reply: Message = result.get
         val newState: State = nextState(state)
-        false // TODO
+        (reply.isInstanceOf[UserBanned] == newState.userBanned) && (reply.isInstanceOf[OperationAck] == newState.lastCommandSuccessful)
       } else {
         false
       }
@@ -211,19 +360,55 @@ object MessageBoardSpecification extends Commands {
   } yield RetrieveCommand(author)
 
   // just a suggestion, change it according to your needs.
-  case class RetrieveCommandResult(success: Boolean, messages: List[String])
+  case class RetrieveCommandResult(success: Boolean, messages: List[UserMessage])
 
   case class RetrieveCommand(author: String) extends Command {
-    type Result = RetrieveCommandResult
+    type Result = RetrieveCommandResult //TODO
 
     def run(sut: Sut): Result = {
-      // TODO
-      throw new java.lang.UnsupportedOperationException("Not implemented yet.")
+
+      sut.getDispatcher.tell(new InitCommunication(sut.getClient, sut.getCommId))
+      while (sut.getClient.receivedMessages.isEmpty)
+        sut.getSystem.runFor(1)
+      val initAck = sut.getClient.receivedMessages.remove.asInstanceOf[InitAck]
+      val worker: SimulatedActor = initAck.worker
+
+      worker.tell(new RetrieveMessages(author, sut.getCommId))
+      while (sut.getClient.receivedMessages.isEmpty)
+        sut.getSystem.runFor(1)
+      val result = sut.getClient.receivedMessages.remove()
+
+      worker.tell(new FinishCommunication(sut.getCommId))
+      while (sut.getClient.receivedMessages.isEmpty)
+        sut.getSystem.runFor(1)
+      sut.getClient.receivedMessages.remove()
+
+      var r: RetrieveCommandResult = null
+      if(result.asInstanceOf[FoundMessages].messages.size() > 0)
+      {
+        r =  RetrieveCommandResult(true, result.asInstanceOf[FoundMessages].messages.asScala.toList)
+      } else
+      {
+        r =  RetrieveCommandResult(false, null)
+      }
+
+      r
     }
 
     def nextState(state: State): State = {
-      // TODO
-      state
+      // R5 It should be possible to retrieve a list of all existing messages of an author.
+
+      if (!state.messages.exists(msg => msg.author == author)) {
+        return state.copy(
+          lastCommandSuccessful = false,
+          userBanned = false
+        )
+      }
+
+      state.copy(
+        lastCommandSuccessful = true,
+        userBanned = false,
+      )
     }
 
     override def preCondition(state: State): Boolean = true
@@ -231,7 +416,8 @@ object MessageBoardSpecification extends Commands {
     override def postCondition(state: State, result: Try[Result]): Prop = {
       if (result.isSuccess) {
         val reply: Result = result.get
-        false // TODO
+        val newState: State = nextState(state)
+        reply.success == newState.lastCommandSuccessful
       } else {
         false
       }
@@ -244,18 +430,58 @@ object MessageBoardSpecification extends Commands {
     searchText <- genMessage
   } yield SearchCommand(searchText)
 
-  case class SearchCommandResult(success: Boolean, messages: List[String])
+  case class SearchCommandResult(success: Boolean, messages: List[UserMessage])
 
   case class SearchCommand(searchText: String) extends Command {
-    type Result = SearchCommandResult
+    type Result = SearchCommandResult //TODO
 
     def run(sut: Sut): Result = {
-      // TODO
-      throw new java.lang.UnsupportedOperationException("Not implemented yet.")
+      sut.getDispatcher.tell(new InitCommunication(sut.getClient, sut.getCommId))
+      while (sut.getClient.receivedMessages.isEmpty)
+        sut.getSystem.runFor(1)
+      val initAck = sut.getClient.receivedMessages.remove.asInstanceOf[InitAck]
+      val worker: SimulatedActor = initAck.worker
+
+      worker.tell(new SearchMessages(searchText, sut.getCommId))
+      while (sut.getClient.receivedMessages.isEmpty)
+        sut.getSystem.runFor(1)
+      val result = sut.getClient.receivedMessages.remove()
+
+      worker.tell(new FinishCommunication(sut.getCommId))
+      while (sut.getClient.receivedMessages.isEmpty)
+        sut.getSystem.runFor(1)
+      sut.getClient.receivedMessages.remove()
+
+      var s: SearchCommandResult = null
+      if(result.asInstanceOf[FoundMessages].messages.size() > 0)
+      {
+        s =  SearchCommandResult(true, result.asInstanceOf[FoundMessages].messages.asScala.toList)
+      }
+      else
+      {
+        s =  SearchCommandResult(false, null)
+      }
+
+      s
     }
 
+
     def nextState(state: State): State = {
-      // TODO
+      // R6 It should be possible to search for messages containing a given text and get back list of those
+      //messages
+
+      if (!state.messages.exists(msg => msg.message == searchText)) {
+        return state.copy(
+          lastCommandSuccessful = false,
+          userBanned = false
+        )
+      }
+
+      state.copy(
+        lastCommandSuccessful = true,
+        userBanned = false,
+      )
+
       state
     }
 
@@ -264,7 +490,8 @@ object MessageBoardSpecification extends Commands {
     override def postCondition(state: State, result: Try[Result]): Prop = {
       if (result.isSuccess) {
         val reply: Result = result.get
-        false // TODO
+        val newState: State = nextState(state)
+        reply.success == newState.lastCommandSuccessful
       } else {
         false
       }
