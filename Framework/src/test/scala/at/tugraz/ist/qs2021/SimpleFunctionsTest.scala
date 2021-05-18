@@ -38,6 +38,11 @@ class SimpleFunctionsTest extends Properties("SimpleFunctionsTest") {
     val sorted = insertionSort(xs)
     xs.nonEmpty ==> xs.indices.tail.forall((i: Int) => sorted(i - 1) <= sorted(i))
   }
+  property("insertionSort: ordered") = forAll { (xs: List[Int]) =>
+    val sorted = insertionSort(xs)
+    xs.nonEmpty ==> xs.indices.tail.forall((i: Int) => sorted(i - 1) <= sorted(i))
+    xs.isEmpty ==>xs.forall((x: Int) => x == "")
+  }
   property("insertionSort: permutation") = forAll { (xs: List[Int]) =>
     val sorted = insertionSort(xs)
 
@@ -52,12 +57,28 @@ class SimpleFunctionsTest extends Properties("SimpleFunctionsTest") {
     val max_element = max(xs)
     xs.nonEmpty ==> xs.forall((x: Int) => x <= max_element)
   }
+  property("maximum") = forAll { (xs: List[Int]) =>
+    val max_element = max(xs)
+    xs.nonEmpty ==> xs.forall((x: Int) => x <= max_element)
+    xs.isEmpty ==> xs.forall((x: Int) => x == 0)
+  }
+
+  /*property("maximum") = forAll { (num: Int, xs: List[Int]) =>
+    val max_element = max(xs)
+    xs.nonEmpty ==> xs.forall((x: Int) => x <= max_element || x <= num)
+    xs.isEmpty ==> xs.forall((x: Int) => x == 0)
+  }*/
 
   // minimal index
   property("minimal Index") = forAll(nonEmptyIntListGen) { (xs: List[Int]) =>
     val minimumIndex = minIndex(xs)
     val minimumValue = xs(minimumIndex)
     xs.nonEmpty ==> xs.indexOf(minimumValue).equals(minimumIndex)
+  }
+  property("minimal Index") = forAll{ (xs: List[Int]) =>
+    val minimumIndex = minIndex(xs)
+    val minimumValue = xs(minimumIndex)
+    xs.nonEmpty ==> false
   }
 
   // symmetric difference
@@ -113,4 +134,7 @@ class SimpleFunctionsTest extends Properties("SimpleFunctionsTest") {
     def count(a: Int, as: List[Int]) = as.count( _ == a )
     as.nonEmpty || bs.nonEmpty ==> newMerge.forall((x: Int) => count(x, newMerge) != smallestInteger)
   }
+
+
+
 }
